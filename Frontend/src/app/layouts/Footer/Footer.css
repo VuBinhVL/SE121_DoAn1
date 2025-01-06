@@ -1,0 +1,110 @@
+.footer {
+  background-color: #b0e0e6;
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.footer .footer-content {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.footer .footer-logo {
+  flex: 1;
+  display: flex;
+
+  align-items: flex-start;
+}
+
+.footer .footer-logo img {
+  width: 40px;
+  height: 40px;
+  margin-bottom: 10px;
+}
+
+.footer .footer-logo p {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+  margin-left: 10px;
+  margin-top: 5px;
+}
+
+.footer .footer-menu {
+  flex: 1;
+  text-align: left;
+  margin-left: 100px;
+}
+
+.footer .footer-menu h4 {
+  margin-bottom: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+}
+
+.footer .footer-menu ul {
+  list-style: none;
+  padding: 0;
+}
+
+/* CSS cho phần điều hướng */
+.footer .nav-link {
+  margin-bottom: 5px;
+  font-size: 14px;
+  color: #333;
+  text-decoration: none; /* Loại bỏ gạch chân mặc định */
+}
+
+/* Hover (khi rê chuột) */
+.footer .nav-link:hover {
+  font-weight: bold; /* Đổi màu chữ khi hover */
+}
+
+/* CSS cho phần liên hệ */
+.footer .footer-contacts {
+  flex: 2;
+  text-align: left;
+}
+
+.footer .footer-contacts h4 {
+  margin-bottom: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+}
+
+.footer.footer-contacts ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer .footer-contacts ul li {
+  margin-bottom: 8px;
+  font-size: 14px;
+  color: #333;
+  display: flex;
+  align-items: center;
+}
+
+.footer .footer-contacts ul li span {
+  margin-right: 8px;
+}
+.footer .contact-icon {
+  width: 16px; /* Kích thước icon */
+  height: 16px;
+  margin-right: 8px; /* Khoảng cách giữa icon và text */
+  vertical-align: middle;
+}
+
+/* Style cho thanh ngang dưới tiêu đề Menu và Contacts */
+.sub-divider {
+  width: 100%;
+  height: 1px; /* Độ dày của thanh */
+  background-color: #333; /* Màu đen */
+  margin: 10px 0; /* Khoảng cách trên và dưới */
+  border: none;
+}

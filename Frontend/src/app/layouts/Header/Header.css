@@ -1,0 +1,72 @@
+/* Style cho thẻ header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 10px;
+  background-color: #b0e0e6;
+  border-bottom: 1px solid #b0e0e6;
+  height: fit-content;
+}
+
+/* Style cho logo và tiêu đề */
+.header .logo {
+  display: flex;
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  margin-top: 2px;
+}
+
+.header .logo-img {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+}
+.header .title {
+  font-weight: bold;
+  color: #333;
+  text-align: center;
+  margin-top: 8px;
+  margin-left: 10px;
+  font-size: 20px;
+}
+
+/* Style cho navigation */
+.header .header-nav {
+  display: flex;
+}
+
+.header .nav-list {
+  display: flex;
+  list-style: none;
+  margin: 10px 0px 0px 0px;
+  padding: 0;
+}
+
+.header .nav-item {
+  margin: 0 20px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* Các tiêu đề*/
+.header .nav-links {
+  text-decoration: none;
+  color: #4a4a4a;
+}
+
+.header .nav-links:hover {
+  color: #033239;
+}
+
+/* Avatar */
+.header .nav-item .avatar {
+  padding: 0px; /* Khoảng cách giữa avatar và viền */
+  margin: -2px;
+  border-radius: 50%; /* Bo tròn để tạo hình tròn */
+  border: 1px solid #ddd; /* Viền mỏng */
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+}

@@ -1,0 +1,268 @@
+/* Tổng quan */
+.home {
+  text-align: center; /* Canh giữa nội dung */
+  background-color: #b0e0e6; /* Màu nền giống hình ảnh */
+  margin: 0 auto; /* Canh giữa trang */
+  width: 100%; /* Bao phủ toàn bộ chiều rộng */
+}
+
+.home .home-introduction {
+  padding: 20px 40px;
+}
+.home .home-introduction h1 {
+  font-size: 24px; /* Kích thước tiêu đề */
+  font-weight: bold; /* Chữ đậm */
+  padding-left: 20px;
+  color: #333; /* Màu chữ chính */
+  margin-bottom: 20px; /* Khoảng cách dưới */
+}
+
+.home .home-introduction .highlight {
+  color: #02606b; /* Màu nhấn mạnh cho từ "ASD Bridge" */
+}
+
+.home .home-images p {
+  font-size: 16px; /* Kích thước chữ nội dung */
+  line-height: 1.6; /* Giãn cách dòng */
+  color: #4a4a4a; /* Màu chữ nội dung */
+  margin-bottom: 30px;
+}
+
+.home .home-images {
+  display: flex;
+  justify-content: center; /* Canh giữa hình ảnh */
+  align-items: center;
+  gap: 20px; /* Khoảng cách giữa các hình */
+}
+
+/* CSS cho ảnh */
+.home .home-images .icon-family {
+  width: 150px; /* Kích thước hình ảnh */
+  height: 120px;
+}
+
+.home .home-images .icon-sunflower {
+  width: 150px; /* Kích thước hình ảnh */
+  height: 110px;
+}
+
+/* CSS phần Giáo dục */
+
+.home .home-education {
+  margin-top: 40px;
+  padding: 40px 20px;
+  background-color: #ffffff;
+  text-align: center;
+  box-sizing: border-box; /* Đảm bảo padding không làm tăng chiều rộng */
+}
+
+.home .education-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.home .education-header .education-icon {
+  width: 70px; /* Kích thước icon giáo dục */
+  height: auto;
+  margin-right: 10px;
+}
+
+.home .education-header h2 {
+  font-size: 24px;
+  font-weight: bold;
+  color: #02606b;
+}
+
+.home .education-cards {
+  display: flex;
+  justify-content: center;
+  gap: 100px; /* Khoảng cách giữa các thẻ */
+}
+
+/* CSS cho Phần Kiểm tra */
+.home .home-test {
+  background-color: #b0e0e6; /* Màu nền xanh nhạt */
+  padding: 40px 20px; /* Khoảng cách bên trong */
+  text-align: center; /* Canh giữa nội dung */
+}
+
+.home .test-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px; /* Khoảng cách giữa icon và text */
+  margin-bottom: 20px;
+}
+
+.home .test-header h2 {
+  font-size: 24px;
+  font-weight: bold;
+  color: #02606b; /* Màu chữ */
+}
+
+.home .test-icon {
+  width: 50px; /* Kích thước icon Kiểm tra */
+  height: auto;
+}
+
+.home .test-body {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 20px;
+  padding: 20px 40px;
+}
+
+.home .test-content {
+  flex: 2;
+  padding-right: 20px; /* Khoảng cách giữa nội dung và robot */
+  text-align: left; /* Canh trái nội dung */
+}
+
+.home .test-content p {
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 20px;
+  line-height: 1.6; /* Khoảng cách dòng */
+}
+
+.home .robot-icon {
+  width: 150px; /* Kích thước hình Robot */
+  height: auto;
+}
+
+.test-robot {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+/*CSS cho Phần Câu chuyện thành công */
+.home-story {
+  background-color: #ffffff; /* Nền trắng */
+  padding: 40px 20px;
+  margin-top: 40px;
+  text-align: center;
+}
+
+.home .story-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px; /* Khoảng cách giữa icon và tiêu đề */
+  margin-bottom: 20px;
+}
+
+.home .story-header h2 {
+  font-size: 24px;
+  font-weight: bold;
+  color: #555; /* Màu chữ của tiêu đề */
+}
+
+.home .story-icon {
+  width: 40px; /* Kích thước icon */
+  height: auto;
+}
+
+.home .story-body {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 20px 40px;
+}
+
+.home .story-content {
+  flex: 2;
+  padding-right: 20px; /* Khoảng cách giữa nội dung và hình ảnh */
+  text-align: left; /* Canh trái nội dung */
+}
+
+.home .story-content p {
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 20px;
+  line-height: 1.6; /* Khoảng cách dòng */
+}
+
+.home .story-image {
+  flex: 1;
+  text-align: center;
+}
+
+.home .story-img {
+  width: 100%; /* Hình ảnh chiếm toàn bộ chiều rộng container */
+  max-width: 350px; /* Giới hạn chiều rộng tối đa */
+  border-radius: 8px; /* Bo góc hình ảnh */
+}
+
+.home .image-caption {
+  font-size: 14px;
+  color: #777;
+  margin-top: 10px;
+  text-align: center;
+}
+
+/* Phần Trò chơi */
+.home-game {
+  background-color: #b0e0e6; /* Màu nền xanh nhạt */
+  padding: 0px 20px;
+  margin-top: 40px;
+  text-align: center;
+}
+
+.home .game-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px; /* Khoảng cách giữa icon và tiêu đề */
+  margin-bottom: 20px;
+}
+
+.home .game-header h2 {
+  font-size: 24px;
+  font-weight: bold;
+  color: #555; /* Màu chữ */
+}
+
+.home .game-icon {
+  width: 40px; /* Kích thước icon */
+  height: auto;
+}
+
+.home .game-body {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 20px 40px;
+}
+
+.home .game-content {
+  flex: 2;
+  padding-right: 20px; /* Khoảng cách giữa nội dung và hình ảnh */
+  text-align: left; /* Canh trái nội dung */
+}
+
+.home .game-content p {
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 20px;
+  line-height: 1.6; /* Khoảng cách dòng */
+}
+
+.home .game-image {
+  flex: 1;
+  text-align: center;
+}
+
+.home .game-img {
+  width: 250px; /* Kích thước hình ảnh */
+  height: auto;
+}
+
+/* CSS phần khoảng trắng */
+.home .home-blank {
+  padding: 80px 20px;
+  background-color: #ffffff; /* Màu nền trắng */
+}
