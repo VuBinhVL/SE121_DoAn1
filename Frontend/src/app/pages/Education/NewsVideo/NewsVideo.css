@@ -1,4 +1,4 @@
-.question-page {
+.news-video-page {
   text-align: center; /* Canh giữa nội dung */
   margin: 0 auto; /* Canh giữa trang */
   width: 100%; /* Bao phủ toàn bộ chiều rộng */
@@ -8,28 +8,28 @@
   box-sizing: border-box; /* Đảm bảo padding không làm tăng chiều rộng */
 }
 
-.question-page .question-header {
+.news-video-page .news-video-header {
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 20px;
 }
 
-.question-page .question-header .question-icon {
+.news-video-page .news-video-header .news-video-icon {
   width: 70px; /* Kích thước icon giáo dục */
   height: auto;
   margin-right: 10px;
 }
 
-.question-page .question-header h2 {
+.news-video-page .news-video-header h2 {
   font-size: 24px;
   font-weight: bold;
   color: #02606b;
 }
 
-/* CSS cho phần question line */
+/* CSS cho phần news-video line */
 /* Phần tiêu đề câu hỏi thường gặp */
-.question-page .question-line {
+.news-video-line {
   display: flex;
   align-items: center;
   gap: 10px; /* Khoảng cách giữa icon và tiêu đề */
@@ -37,12 +37,12 @@
   position: relative;
 }
 
-.question-page .question-line-icon {
-  width: 40px; /* Kích thước biểu tượng */
-  height: 40px;
+.news-video-line-icon {
+  width: 60px; /* Kích thước biểu tượng */
+  height: auto;
 }
 
-.question-page .question-line-title {
+.news-video-line-title {
   font-size: 24px; /* Kích thước chữ */
   font-weight: bold;
   color: #333; /* Màu chữ */
@@ -50,7 +50,7 @@
 }
 
 /* Đường gạch ngang */
-.question-page .header-line {
+.news-video-header-line {
   margin-top: 5px;
   border: none;
   border-top: 2px solid #f0e68c; /* Màu vàng nhạt */

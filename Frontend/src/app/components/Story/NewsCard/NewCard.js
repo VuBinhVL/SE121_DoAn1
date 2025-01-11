@@ -7,11 +7,12 @@ export default function NewsCard({
   author,
   time,
   source,
-  onClick,
+  link, // Đường link được gắn vào card
 }) {
-  const handleCardClick = (e) => {
-    e.stopPropagation(); // Ngăn sự kiện chồng lấn nếu cần
-    onClick && onClick(); // Gọi sự kiện onClick từ props nếu được truyền
+  const handleCardClick = () => {
+    if (link) {
+      window.open(link, "_blank"); // Điều hướng đến link trong tab mới
+    }
   };
 
   return (
@@ -36,9 +37,6 @@ export default function NewsCard({
         <div className="news-card-source">
           <img src={source} alt="Source" />
         </div>
-
-        {/* Đọc thêm
-        <div className="news-card-read-more">Đọc thêm &gt;&gt;&gt;</div> */}
       </div>
 
       {/* Thanh ngang */}
