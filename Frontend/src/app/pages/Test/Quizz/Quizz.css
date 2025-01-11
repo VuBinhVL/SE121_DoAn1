@@ -1,0 +1,98 @@
+body {
+    background-color: white;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.quiz-container {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    padding: 20px;
+    width: 80%;
+    max-width: 600px;
+}
+
+h1 {
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.question-item {
+    margin-bottom: 20px;
+}
+
+p {
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.radio-group {
+    display: flex;
+    justify-content: space-around;
+}
+
+.radio-group label {
+    margin-right: 10px;
+}
+
+button {
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.navigation button {
+    background-color: #007bff; /* Blue for Back and Next */
+}
+
+.navigation button:hover {
+    background-color: #0069d9;
+}
+
+.navigation button:active {
+    background-color: #0062cc;
+}
+
+.navigation {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.submit-button {
+    background-color: #fd7e14; /* Orange for Submit */
+    width: 100%;
+    margin-top: 20px;
+}
+
+.submit-button:hover {
+    background-color: #ec750e;
+}
+
+.submit-button:active {
+    background-color: #d36e0e;
+}
+
+.radio-group label {
+    margin-right: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.radio-group input[type="radio"] {
+    margin-right: 5px; /* Adds space between the radio button and the text */
+}

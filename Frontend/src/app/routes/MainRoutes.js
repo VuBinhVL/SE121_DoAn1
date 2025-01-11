@@ -8,6 +8,7 @@ import Education from "../pages/Education/Education";
 import Test from "../pages/Test/Test";
 import Question from "../pages/Education/Question";
 import Story from "../pages/Story/Story";
+import Quizz from "../pages/Test/Quizz";
 
 export default function MainRoutes() {
   return (
@@ -19,6 +20,7 @@ export default function MainRoutes() {
         <Route path="/education" element={<Education />} />
         <Route path="/education/question" element={<Question />} />
         <Route path="/test" element={<Test />} />
+        <Route path="/test/quizz" element={<Quizz />} />
         <Route path="/story" element={<Story />} />
         <Route path="*" element={<PageNotFound />} />
       </Routes>
