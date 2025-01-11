@@ -6,6 +6,7 @@ import Footer from "../layouts/Footer";
 import PageNotFound from "../layouts/PageNotFound";
 import Education from "../pages/Education/Education";
 import Test from "../pages/Test/Test";
+import Question from "../pages/Education/Question";
 
 export default function MainRoutes() {
   return (
@@ -15,8 +16,8 @@ export default function MainRoutes() {
         <Route path="/" element={<Home />} />
         <Route path="/home" element={<Home />} />
         <Route path="/education" element={<Education />} />
+        <Route path="/education/question" element={<Question />} />
         <Route path="/test" element={<Test />} />
-
         <Route path="*" element={<PageNotFound />} />
       </Routes>
       <Footer />

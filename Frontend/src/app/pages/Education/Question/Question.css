@@ -1,0 +1,57 @@
+.question-page {
+  text-align: center; /* Canh giữa nội dung */
+  margin: 0 auto; /* Canh giữa trang */
+  width: 100%; /* Bao phủ toàn bộ chiều rộng */
+  margin-top: 40px;
+  padding: 40px 20px;
+  background-color: #ffffff;
+  box-sizing: border-box; /* Đảm bảo padding không làm tăng chiều rộng */
+}
+
+.question-page .question-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.question-page .question-header .question-icon {
+  width: 70px; /* Kích thước icon giáo dục */
+  height: auto;
+  margin-right: 10px;
+}
+
+.question-page .question-header h2 {
+  font-size: 24px;
+  font-weight: bold;
+  color: #02606b;
+}
+
+/* CSS cho phần question line */
+/* Phần tiêu đề câu hỏi thường gặp */
+.question-line {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Khoảng cách giữa icon và tiêu đề */
+  position: relative;
+}
+
+.question-line-icon {
+  width: 40px; /* Kích thước biểu tượng */
+  height: 40px;
+}
+
+.question-line-title {
+  font-size: 20px; /* Kích thước chữ */
+  font-weight: bold;
+  color: #333; /* Màu chữ */
+  margin: 0;
+}
+
+/* Đường gạch ngang */
+.header-line {
+  margin-top: 5px;
+  border: none;
+  border-top: 2px solid #f0e68c; /* Màu vàng nhạt */
+  width: 100%;
+}

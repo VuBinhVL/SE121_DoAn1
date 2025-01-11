@@ -4,17 +4,21 @@ import student from "../../../assets/images/student.png";
 import ask from "../../../assets/images/ask.png";
 import video from "../../../assets/images/video.png";
 import "./Education.css";
+import { useNavigate } from "react-router-dom";
+
 export default function Education() {
+  const navigate = useNavigate();
   //Sự kiện cho nút bài viết video
   const handleVideo = () => {
     alert("Đã vào bài viết video");
     // navigate("/education");
   };
 
-  //Sự kiện cho nút câu hỏi
+  //Sự kiện qua trang câu hỏi
   const handleQuestion = () => {
-    alert("Đã vào câu hỏi");
+    navigate("/education/question");
   };
+
   return (
     <div className="education-page">
       <div className="education-header">

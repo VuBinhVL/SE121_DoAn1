@@ -1,0 +1,40 @@
+/* QuestionAnswer.css */
+.qa-container {
+  margin: 20px auto;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+  min-width: 600px;
+  font-family: Arial, sans-serif;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  cursor: pointer; /* Thay đổi con trỏ khi hover */
+}
+.qa-container .qa-icon {
+  width: 27px; /* Kích thước icon */
+  height: auto;
+}
+
+.qa-container .qa-question {
+  font-size: 18px;
+  color: #333;
+  display: flex;
+  justify-content: flex-start; /* Đưa nội dung sang trái */
+  align-items: center;
+  gap: 10px; /* Tạo khoảng cách giữa icon và câu hỏi */
+}
+
+.qa-container .qa-answer {
+  margin-top: 10px;
+  font-size: 16px;
+  color: #555;
+  text-align: left; /* Căn văn bản sang trái */
+  padding-left: 37px; /* Tạo khoảng cách từ viền trái */
+  line-height: 1.6; /* Tăng khoảng cách dòng để dễ đọc */
+}
+
+.qa-container .qa-toggle {
+  margin-left: auto; /* Đưa toggle (mũi tên) về bên phải */
+  font-size: 14px;
+  color: #888;
+}
