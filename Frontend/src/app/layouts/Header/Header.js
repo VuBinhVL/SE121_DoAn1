@@ -33,7 +33,7 @@ export default function Header() {
             </Link>
           </li>
           <li className="nav-item">
-            <Link to="/" className="nav-links">
+            <Link to="/story" className="nav-links">
               Câu chuyện thành công
             </Link>
           </li>

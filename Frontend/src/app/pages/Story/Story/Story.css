@@ -1,0 +1,32 @@
+.story-page {
+  text-align: center; /* Canh giữa nội dung */
+  margin: 0 auto; /* Canh giữa trang */
+  width: 100%; /* Bao phủ toàn bộ chiều rộng */
+  margin-top: 40px;
+  padding: 40px 20px;
+  background-color: #ffffff;
+  box-sizing: border-box; /* Đảm bảo padding không làm tăng chiều rộng */
+}
+
+.story-page .story-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.story-page .story-header .story-icon {
+  width: 70px; /* Kích thước icon giáo dục */
+  height: auto;
+  margin-right: 10px;
+}
+
+.story-page .story-header h2 {
+  margin-top: 20px;
+  font-size: 24px;
+  font-weight: bold;
+  color: #02606b;
+}
+.story-page .story-list {
+  margin-top: 45px;
+}

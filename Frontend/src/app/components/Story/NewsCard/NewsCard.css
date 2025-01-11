@@ -1,0 +1,85 @@
+.news-card {
+  display: flex;
+  align-items: flex-start;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background-color: #fff;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  position: relative;
+  cursor: pointer; /* Đổi con trỏ khi hover */
+}
+
+.news-card:hover {
+  background-color: #f9f9f9; /* Hiệu ứng hover */
+}
+/* Ảnh */
+.news-card-image img {
+  width: 250px;
+  height: auto;
+  border-radius: 10px;
+}
+
+.news-card .news-card-content {
+  margin-left: 15px;
+  flex: 1;
+}
+
+/* Tiêu đề bài báo */
+.news-card .news-card-title {
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+  margin: 0 0 10px 0;
+  text-align: left;
+}
+
+.news-card .news-card-meta {
+  display: flex;
+  gap: 10px;
+  font-size: 14px;
+  color: #888;
+  margin-bottom: 10px;
+}
+/* Tên tác giả */
+.news-card .news-card-author {
+  font-weight: bold;
+  color: #000000;
+}
+
+/* Thời gian */
+.news-card .news-card-time {
+  color: #000000;
+  font-style: italic;
+}
+/* Logo */
+.news-card .news-card-source {
+  display: flex;
+  align-items: flex-start; /* Căn hình ảnh sang trên cùng (nếu cần) */
+}
+
+.news-card .news-card-source img {
+  width: 80px;
+  height: auto;
+  margin-bottom: 10px;
+  align-self: flex-start; /* Căn logo về phía trái */
+}
+
+/* Đọc thêm */
+.news-card .news-card-read-more {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+/* Đọc thêm */
+.news-card .news-card-read-more:hover {
+  text-decoration: underline; /* Thêm gạch chân khi hover */
+}
+
+/* Thanh ngang */
+.news-card .news-card-divider {
+  margin-top: 15px;
+  border: none;
+  border-top: 1px solid #ccc; /* Màu xám nhạt */
+}
