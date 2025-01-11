@@ -28,7 +28,7 @@ export default function Header() {
             </Link>
           </li>
           <li className="nav-item">
-            <Link to="/" className="nav-links">
+            <Link to="/test" className="nav-links">
               Kiểm tra
             </Link>
           </li>

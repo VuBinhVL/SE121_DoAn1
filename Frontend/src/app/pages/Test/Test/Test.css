@@ -1,0 +1,34 @@
+.test-page {
+  text-align: center; /* Canh giữa nội dung */
+  margin: 0 auto; /* Canh giữa trang */
+  width: 100%; /* Bao phủ toàn bộ chiều rộng */
+  margin-top: 40px;
+  padding: 40px 20px;
+  background-color: #ffffff;
+  box-sizing: border-box; /* Đảm bảo padding không làm tăng chiều rộng */
+}
+
+.test-page .test-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.test-page .test-header .test-icon {
+  width: 70px; /* Kích thước icon giáo dục */
+  height: auto;
+  margin-right: 10px;
+}
+
+.test-page .test-header h2 {
+  font-size: 24px;
+  font-weight: bold;
+  color: #02606b;
+}
+
+.test-page .test-cards {
+  display: flex;
+  justify-content: center;
+  gap: 100px; /* Khoảng cách giữa các thẻ */
+}
