@@ -13,8 +13,37 @@ import game from "../../assets/icons/game.png";
 import playergame from "../../assets/images/playergame.png";
 import Card from "../../components/Home/Card/Card"; //Card
 import Button from "../../components/Home//Button/Button"; //Button
+import { useNavigate } from "react-router-dom";
 
 export default function Home() {
+  const navigate = useNavigate();
+
+  //Sự kiện cho nút bài viết video
+  const handleVideo = () => {
+    alert("Đã vào bài viết video");
+    // navigate("/education");
+  };
+
+  //Sự kiện cho nút câu hỏi
+  const handleQuestion = () => {
+    alert("Đã vào câu hỏi");
+  };
+
+  //Sự kiện cho nút Kiểm tra
+  const handleTest = () => {
+    alert("Đã vào nút kiểm tra");
+  };
+
+  //Sự kiện cho nút câu chuyện
+  const handleStory = () => {
+    alert("Đã vào nút câu chuyện");
+  };
+
+  //Sự kiện cho nút trò chơi
+  const handleGame = () => {
+    alert("Đã vào nút game");
+  };
+
   return (
     <div className="home">
       <div className="home-introduction">
@@ -47,11 +76,13 @@ export default function Home() {
             icon={video}
             title="Bài Viết & Video"
             description="Cung cấp kiến thức cơ bản về tự kỉ, các triệu chứng, và cách nhận biết."
+            onClick={handleVideo}
           />
           <Card
             icon={ask}
             title="Câu hỏi thường gặp"
             description="Những câu hỏi phổ biến và câu trả lời chi tiết về vấn đề."
+            onClick={handleQuestion}
           />
         </div>
       </div>
@@ -70,7 +101,7 @@ export default function Home() {
               AI còn giúp phát hiện hình ảnh trẻ có mắc chứng tự kỉ ngay lập
               tức!!
             </p>
-            <Button label="Bắt đầu" />
+            <Button label="Bắt đầu" onClick={handleTest} />
           </div>
           <div className="test-robot">
             <img src={robot} alt="Robot Assistant" className="robot-icon" />
@@ -92,7 +123,7 @@ export default function Home() {
               Hãy cùng khám phá hành trình đầy cảm hứng của những trẻ tự kỉ đã
               vươn lên và tỏa sáng!
             </p>
-            <Button label="Đọc thêm" />
+            <Button label="Đọc thêm" onClick={handleStory} />
           </div>
           <div className="story-image">
             <img src={storyimage} alt="Story Image" className="story-img" />
@@ -118,7 +149,7 @@ export default function Home() {
               kỉ khám phá cảm xúc, hiểu hành vi, kết nối xã hội, và mở ra những
               khả năng tiềm ẩn trong chính mình.
             </p>
-            <Button label="Chơi ngay" />
+            <Button label="Chơi ngay" onClick={handleGame} />
           </div>
           <div className="game-image">
             <img src={playergame} alt="Player Game" className="game-img" />

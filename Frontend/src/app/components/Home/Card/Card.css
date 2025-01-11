@@ -8,6 +8,7 @@
   padding: 20px; /* Khoảng cách bên trong */
   margin: 10px; /* Khoảng cách bên ngoài */
   transition: transform 0.2s ease; /* Hiệu ứng phóng to khi hover */
+  cursor: pointer;
 }
 
 .card:hover {

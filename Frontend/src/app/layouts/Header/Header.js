@@ -9,7 +9,7 @@ export default function Header() {
   return (
     <header className="header">
       <div className="logo">
-        <Link to="/">
+        <Link to="/home">
           <img className="logo-img" src={logo} alt="Logo phòng khám"></img>
         </Link>
         <p className="title">SD-Bridge</p>
@@ -17,13 +17,13 @@ export default function Header() {
       <nav className="header-nav">
         <ul className="nav-list">
           <li className="nav-item">
-            <Link to="/" className="nav-links">
+            <Link to="/home" className="nav-links">
               Trang chủ
             </Link>
           </li>
 
           <li className="nav-item">
-            <Link to="/" className="nav-links">
+            <Link to="/education" className="nav-links">
               Giáo dục
             </Link>
           </li>
