@@ -11,7 +11,7 @@ import Story from "../pages/Story/Story";
 import NewsVideo from "../pages/Education/NewsVideo";
 import GamePage from "../pages/Game/GamePage";
 import Game1 from "../pages/Game/Game1";
-import Quizz from "../pages/Test/Quizz";
+import Quizz from "../pages/Test/Quizz/Quizz";
 
 export default function MainRoutes() {
   return (
