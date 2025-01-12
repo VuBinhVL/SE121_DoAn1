@@ -4,17 +4,19 @@ import test from "../../../assets/images/kiemtra.png";
 import quizz from "../../../assets/icons/quizz-test.png";
 import image from "../../../assets/icons/image-test.png";
 import "./Test.css";
+import { useNavigate } from "react-router-dom";
 
 export default function Test() {
+  const navigate = useNavigate();
   //Sự kiện cho nút bài viết video
   const handleVideo = () => {
     alert("Đã vào bài viết video");
     // navigate("/test");
   };
 
-  //Sự kiện cho nút câu hỏi
+  //Sự kiện cho làm quiz
   const handleQuestion = () => {
-    alert("Đã vào câu hỏi");
+    navigate("/test/quizz");
   };
   return (
     <div className="test-page">

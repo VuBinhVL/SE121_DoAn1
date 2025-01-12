@@ -1,0 +1,27 @@
+.topic1-autism {
+  padding: 20px;
+  line-height: 1.6;
+}
+
+.topic1-autism .autism-video {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.topic1-autism .autism-content p,
+.topic1-autism .autism-content ul,
+.topic1-autism .autism-content ol {
+  margin-bottom: 15px;
+  margin-left: 10px;
+}
+
+.topic1-autism .autism-content ul li {
+  margin-bottom: 15px;
+  margin-left: 20px;
+}
+
+.topic1-autism .autism-content h2 {
+  margin-top: 20px;
+  color: #333;
+  margin-left: 10px;
+}

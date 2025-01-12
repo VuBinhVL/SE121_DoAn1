@@ -1,0 +1,133 @@
+.news-video-page {
+  text-align: center; /* Canh giữa nội dung */
+  margin: 0 auto; /* Canh giữa trang */
+  width: 100%; /* Bao phủ toàn bộ chiều rộng */
+  margin-top: 40px;
+  padding: 40px 20px;
+  background-color: #ffffff;
+  box-sizing: border-box; /* Đảm bảo padding không làm tăng chiều rộng */
+}
+
+.news-video-page .news-video-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.news-video-page .news-video-header .news-video-icon {
+  width: 70px; /* Kích thước icon giáo dục */
+  height: auto;
+  margin-right: 10px;
+}
+
+.news-video-page .news-video-header h2 {
+  font-size: 24px;
+  font-weight: bold;
+  color: #02606b;
+}
+
+/* Phần tiêu đề câu hỏi thường gặp */
+.news-video-page .news-video-line {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Khoảng cách giữa icon và tiêu đề */
+  margin: 20px 0;
+  position: relative;
+}
+
+.news-video-page .news-video-line-icon {
+  width: 60px; /* Kích thước biểu tượng */
+  height: auto;
+}
+
+.news-video-page .news-video-line-title {
+  font-size: 24px; /* Kích thước chữ */
+  font-weight: bold;
+  color: #333; /* Màu chữ */
+  margin: 0;
+}
+
+/* Đường gạch ngang */
+.news-video-page .news-video-header-line {
+  margin-top: 5px;
+  border: none;
+  border-top: 2px solid #f0e68c; /* Màu vàng nhạt */
+  width: 100%;
+}
+
+/* Phần nội dung */
+.news-video-page .news-video-container {
+  display: flex; /* Sắp xếp ngang giữa thanh bên và nội dung */
+  gap: 20px; /* Khoảng cách giữa các phần */
+  margin-top: 20px;
+}
+
+/* Thanh bên trái */
+.news-video-page .news-video-sidebar {
+  width: 250px; /* Độ rộng của thanh bên */
+  height: 400px; /* Chiều cao cố định */
+  background-color: #e0ae8a; /* Màu nền thanh bên */
+  border-radius: 10px; /* Bo tròn góc */
+  padding: 15px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Đổ bóng nhẹ */
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* Khoảng cách giữa các mục */
+  overflow-y: auto; /* Kích hoạt cuộn dọc nếu nội dung vượt quá chiều cao */
+}
+
+/* Từng mục trong thanh bên */
+.news-video-page .news-video-sidebar-item {
+  display: flex;
+  justify-content: space-between; /* Đưa tiêu đề và mũi tên sang hai bên */
+  align-items: center;
+  background-color: #fff; /* Nền trắng cho mục */
+  border-radius: 5px; /* Bo tròn góc mục */
+  padding: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  color: #333;
+  transition: all 0.3s ease; /* Hiệu ứng hover */
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Đổ bóng nhẹ */
+}
+
+.news-video-page .news-video-sidebar-item:hover {
+  background-color: #efd594; /* Màu nền khi hover */
+  transform: translateY(-2px); /* Nâng mục lên khi hover */
+}
+
+.news-video-page .news-video-sidebar-item.active {
+  background-color: #f37c5f; /* Màu nền cho mục đang được chọn */
+  color: #fff; /* Chữ màu trắng */
+}
+
+/* Phần nội dung */
+.news-video-page .news-video-content {
+  flex: 1; /* Chiếm toàn bộ không gian còn lại */
+  height: 400px; /* Chiều cao cố định bằng với thanh bên */
+  padding: 15px;
+  background-color: #fff; /* Nền trắng */
+  border-radius: 10px; /* Bo tròn góc */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Đổ bóng nhẹ */
+  overflow-y: auto; /* Kích hoạt cuộn dọc khi nội dung vượt chiều cao */
+  text-align: left; /* Căn toàn bộ nội dung về bên trái */
+}
+
+/* Thanh cuộn tùy chỉnh cho phần nội dung */
+.news-video-page .news-video-content::-webkit-scrollbar {
+  width: 8px; /* Độ rộng của thanh cuộn */
+}
+
+.news-video-page .news-video-content h2 {
+  font-size: 20px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.news-video-page .news-video-content-body {
+  font-size: 16px;
+  color: #555;
+  line-height: 1.5; /* Tăng khoảng cách dòng */
+  align-items: flex-start;
+}

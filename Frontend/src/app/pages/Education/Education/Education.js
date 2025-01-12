@@ -10,8 +10,7 @@ export default function Education() {
   const navigate = useNavigate();
   //Sự kiện cho nút bài viết video
   const handleVideo = () => {
-    alert("Đã vào bài viết video");
-    // navigate("/education");
+    navigate("/education/news-video");
   };
 
   //Sự kiện qua trang câu hỏi
