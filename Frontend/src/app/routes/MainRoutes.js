@@ -10,6 +10,7 @@ import Question from "../pages/Education/Question";
 import Story from "../pages/Story/Story";
 import NewsVideo from "../pages/Education/NewsVideo";
 import GamePage from "../pages/Game/GamePage";
+import Game1 from "../pages/Game/Game1";
 
 export default function MainRoutes() {
   return (
@@ -24,7 +25,7 @@ export default function MainRoutes() {
         <Route path="/test" element={<Test />} />
         <Route path="/story" element={<Story />} />
         <Route path="/game" element={<GamePage />} />
-
+        <Route path="/game/game1" element={<Game1 />} />
         <Route path="*" element={<PageNotFound />} />
       </Routes>
       <Footer />

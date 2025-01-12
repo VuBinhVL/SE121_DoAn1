@@ -11,8 +11,7 @@ export default function GamePage() {
 
   //Sự kiện cho game thứ nhất
   const handleGame1 = () => {
-    //navigate("/education/news-video");
-    alert("Đã vào game 1");
+    navigate("/game/game1");
   };
 
   //Sự kiện cho game thứ hai
