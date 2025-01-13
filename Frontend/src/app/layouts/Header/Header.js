@@ -38,7 +38,7 @@ export default function Header() {
             </Link>
           </li>
           <li className="nav-item">
-            <Link to="/" className="nav-links">
+            <Link to="/game" className="nav-links">
               Trò chơi
             </Link>
           </li>

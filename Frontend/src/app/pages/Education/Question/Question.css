@@ -29,27 +29,28 @@
 
 /* CSS cho phần question line */
 /* Phần tiêu đề câu hỏi thường gặp */
-.question-line {
+.question-page .question-line {
   display: flex;
   align-items: center;
   gap: 10px; /* Khoảng cách giữa icon và tiêu đề */
+  margin: 20px 0;
   position: relative;
 }
 
-.question-line-icon {
+.question-page .question-line-icon {
   width: 40px; /* Kích thước biểu tượng */
   height: 40px;
 }
 
-.question-line-title {
-  font-size: 20px; /* Kích thước chữ */
+.question-page .question-line-title {
+  font-size: 24px; /* Kích thước chữ */
   font-weight: bold;
   color: #333; /* Màu chữ */
   margin: 0;
 }
 
 /* Đường gạch ngang */
-.header-line {
+.question-page .header-line {
   margin-top: 5px;
   border: none;
   border-top: 2px solid #f0e68c; /* Màu vàng nhạt */

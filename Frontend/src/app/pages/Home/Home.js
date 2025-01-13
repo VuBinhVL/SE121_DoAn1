@@ -20,28 +20,27 @@ export default function Home() {
 
   //Sự kiện cho nút bài viết video
   const handleVideo = () => {
-    alert("Đã vào bài viết video");
-    // navigate("/education");
+    navigate("/education/news-video");
   };
 
   //Sự kiện cho nút câu hỏi
   const handleQuestion = () => {
-    alert("Đã vào câu hỏi");
+    navigate("/education/question");
   };
 
   //Sự kiện cho nút Kiểm tra
   const handleTest = () => {
-    alert("Đã vào nút kiểm tra");
+    navigate("/test");
   };
 
   //Sự kiện cho nút câu chuyện
   const handleStory = () => {
-    alert("Đã vào nút câu chuyện");
+    navigate("/story");
   };
 
   //Sự kiện cho nút trò chơi
   const handleGame = () => {
-    alert("Đã vào nút game");
+    navigate("/game");
   };
 
   return (

@@ -1,0 +1,58 @@
+.topic3-autism {
+  padding: 20px;
+  line-height: 1.6;
+  color: #333;
+}
+
+.topic3-autism h1 {
+  color: #222;
+  margin-bottom: 20px;
+  text-align: center;
+}
+/* CSS cho ảnh */
+.topic3-autism .causes-images {
+  display: flex;
+  justify-content: center; /* Căn giữa các hình ảnh */
+  gap: 20px; /* Khoảng cách giữa hai hình ảnh */
+  margin-bottom: 30px;
+}
+
+.topic3-autism .causes-images img {
+  width: auto;
+  height: 270px;
+  border-radius: 10px; /* Bo góc hình ảnh */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Đổ bóng hình ảnh */
+}
+
+.topic3-autism .causes-content {
+  margin-top: 20px;
+}
+
+.topic3-autism .causes-content h2 {
+  margin-bottom: 15px;
+}
+
+.topic3-autism .causes-content p {
+  margin-bottom: 20px;
+}
+
+.topic3-autism .causes-content ul {
+  margin-left: 20px;
+  list-style: none; /* Xóa ký hiệu mặc định */
+  padding-left: 0;
+}
+
+.topic3-autism .causes-content ul li {
+  margin-bottom: 15px;
+  padding-left: 20px;
+  position: relative;
+}
+
+.topic3-autism .causes-content ul li::before {
+  position: absolute;
+  left: 0;
+}
+
+.topic3-autism .causes-content ul li strong {
+  color: #333; /* Màu đậm cho tiêu đề từng mục */
+}
