@@ -12,7 +12,7 @@
   color: #191919;
 }
 
-.puzzle-and-reference {
+.game2-container .puzzle-and-reference {
   display: flex; /* Sắp xếp khu vực ghép ảnh và ảnh mẫu nằm ngang */
   justify-content: space-between; /* Dàn đều hai khu vực */
   align-items: flex-start; /* Căn theo đỉnh */
@@ -22,7 +22,7 @@
 }
 
 /* Khu vực ghép ảnh */
-.puzzle-grid {
+.game2-container .puzzle-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr); /* 3 cột */
   grid-template-rows: repeat(3, 1fr); /* 3 hàng */
@@ -35,7 +35,7 @@
   margin-bottom: 10px;
 }
 
-.puzzle-slot {
+.game2-container .puzzle-slot {
   width: 100%;
   height: 100%;
   position: relative;
@@ -43,7 +43,7 @@
   overflow: hidden; /* Đảm bảo mảnh không vượt ra ngoài ô */
 }
 
-.puzzle-piece {
+.game2-container .puzzle-piece {
   width: 100%; /* Đảm bảo lấp đầy ô */
   height: 100%; /* Đảm bảo lấp đầy ô */
   background-size: 300% 300%; /* Tương ứng với 3x3 mảnh ghép */
@@ -51,37 +51,37 @@
 }
 
 /* Ảnh mẫu */
-.reference-area {
+.game2-container .reference-area {
   flex: 0.4; /* Chiếm ít không gian hơn khu vực ghép ảnh */
   text-align: center;
 }
 
-.reference-image {
+.game2-container .reference-image {
   width: auto;
   height: 190px;
   border: 2px solid #ccc;
   border-radius: 5px;
 }
 
-.reference-area h3 {
+.game2-container .reference-area h3 {
   text-align: left;
   margin-bottom: 10px;
 }
 
 /* Khu vực chứa ảnh bị cắt */
-.shuffled-area {
+.game2-container .shuffled-area {
   text-align: center;
   width: 100%; /* Chiếm toàn bộ chiều rộng */
 }
 
-.shuffled-grid {
+.game2-container .shuffled-grid {
   display: flex;
   flex-wrap: wrap; /* Tự động xuống hàng */
   gap: 10px; /* Khoảng cách giữa các mảnh ghép */
   justify-content: center; /* Căn giữa các mảnh ghép */
 }
 
-.shuffled-piece {
+.game2-container .shuffled-piece {
   width: 100px;
   height: 100px;
   border: 2px solid #ccc;
@@ -90,14 +90,14 @@
 }
 
 /* Nút xác nhận */
-.feedback {
+.game2-container .feedback {
   text-align: center;
   font-size: 16px;
   font-weight: bold;
   color: #333;
 }
 
-.confirm-button {
+.game2-container .confirm-button {
   margin-top: 20px;
   padding: 10px 20px;
   font-size: 16px;
@@ -109,6 +109,6 @@
   transition: all 0.3s;
 }
 
-.confirm-button:hover {
+.game2-container .confirm-button:hover {
   background-color: #45a049;
 }
