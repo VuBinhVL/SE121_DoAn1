@@ -14,6 +14,7 @@ import Game1 from "../pages/Game/Game1";
 import Quizz from "../pages/Test/Quizz/Quizz";
 import Game2 from "../pages/Game/Game2/Game2";
 import Game3 from "../pages/Game/Game3";
+import Login from "../pages/Other/Login";
 
 export default function MainRoutes() {
   return (
@@ -32,6 +33,7 @@ export default function MainRoutes() {
         <Route path="/game/game1" element={<Game1 />} />
         <Route path="/game/game2" element={<Game2 />} />
         <Route path="/game/game3" element={<Game3 />} />
+        <Route path="/login" element={<Login />} />
         <Route path="*" element={<PageNotFound />} />
       </Routes>
       <Footer />

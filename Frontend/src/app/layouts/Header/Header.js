@@ -1,11 +1,16 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import logo from "../../assets/images/logo.png"; //Logo
 import avatar from "../../assets/images/avatar_default.png"; //Avatar
 import "./Header.css";
 import "../../styles/index.css";
 
 export default function Header() {
+  const navigate = useNavigate();
+  //Điều hướng đến trang đăng nhập
+  const handdleLogin = () => {
+    navigate("/login");
+  };
   return (
     <header className="header">
       <div className="logo">
@@ -43,7 +48,12 @@ export default function Header() {
             </Link>
           </li>
           <li className="nav-item">
-            <img src={avatar} alt="Avatar" className="avatar" />
+            <img
+              src={avatar}
+              alt="Avatar"
+              className="avatar"
+              onClick={handdleLogin}
+            />
           </li>
         </ul>
       </nav>
