@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-
-import "./Login.css";
+import { showErrorMessageBox } from "../../../components/MessageBox/ErrorMessageBox/showErrorMessageBox";
 import { fetchPost } from "../../../lib/httpHandler";
+import { sIsLoggedIn } from "../../../../store";
+import "./Login.css";
 
 export default function Login() {
   const [tentaikhoan, setTentaikhoan] = useState("");
@@ -14,14 +15,19 @@ export default function Login() {
     const uri = "/api/login";
     const data = {
       tenTaiKhoan: tentaikhoan,
-      matKhau: password,
+      matKhau: tentaikhoan,
     };
+
     fetchPost(
       uri,
       data,
-      (res) => alert("Đăng nhập thành công"),
-      (fail) => alert("Đăng nhập thất bại"),
-      () => alert("Mất kết nối đến máy chủ")
+      (res) => {
+        navigate("/home");
+        sIsLoggedIn.set(true);
+        localStorage.setItem("jwtToken", res.token);
+      },
+      (fail) => showErrorMessageBox(fail.message),
+      () => showErrorMessageBox("Mất kết nối đến máy chủ")
     );
   };
 

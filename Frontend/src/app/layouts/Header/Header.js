@@ -1,16 +1,33 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import logo from "../../assets/images/logo.png"; //Logo
 import avatar from "../../assets/images/avatar_default.png"; //Avatar
+import { sIsLoggedIn } from "../../../store";
 import "./Header.css";
 import "../../styles/index.css";
 
 export default function Header() {
   const navigate = useNavigate();
-  //Điều hướng đến trang đăng nhập
-  const handdleLogin = () => {
-    navigate("/login");
+  const isLoggedInValue = sIsLoggedIn.use();
+  const [showMenu, setShowMenu] = useState(false); // Hiển thị menu dropdown
+
+  // Xử lý khi nhấn vào avatar cho đăng nhập và chưa đăng nhập
+  const handleAvatarClick = () => {
+    if (isLoggedInValue) {
+      setShowMenu((prev) => !prev); // Hiển thị/ẩn menu
+    } else {
+      navigate("/login"); // Điều hướng đến trang đăng nhập nếu chưa đăng nhập
+    }
   };
+
+  // Đăng xuất
+  const handleLogout = () => {
+    setShowMenu(false); // Đóng dropdown
+    localStorage.removeItem("jwtToken"); // Xóa thông tin người dùng
+    sIsLoggedIn.set(false);
+    navigate("/login"); // Chuyển hướng về trang login
+  };
+
   return (
     <header className="header">
       <div className="logo">
@@ -48,12 +65,20 @@ export default function Header() {
             </Link>
           </li>
           <li className="nav-item">
-            <img
-              src={avatar}
-              alt="Avatar"
-              className="avatar"
-              onClick={handdleLogin}
-            />
+            <div className="avatar-container" onClick={handleAvatarClick}>
+              <img src={avatar} alt="Avatar" className="avatar" />
+              {isLoggedInValue && showMenu && (
+                <ul className="dropdown-menu">
+                  <li onClick={() => navigate("/profile")}>
+                    Thông tin tài khoản
+                  </li>
+                  <li onClick={() => navigate("/quiz-history")}>
+                    Lịch sử làm quizz
+                  </li>
+                  <li onClick={handleLogout}>Đăng xuất</li>
+                </ul>
+              )}
+            </div>
           </li>
         </ul>
       </nav>
