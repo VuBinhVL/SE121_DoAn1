@@ -90,5 +90,18 @@ namespace Autism.WebAPI.Areas.Customer
                 return StatusCode(HttpStatusCode.InternalServerError, HttpStatusCode.HeThongGapSuCo);
             }
         }
+        [HttpGet("info")]
+        public async Task<IActionResult> HienThiThongTinNguoiDungAsync(HttpContext httpContext)
+        {
+            try
+            {
+                var rs = await _nguoiDungService.HienThiThongTinNguoiDungAsync(httpContext);
+                return Ok(rs);
+            }
+            catch (Exception e)
+            {
+                return StatusCode(HttpStatusCode.InternalServerError, HttpStatusCode.HeThongGapSuCo);
+            }
+        }
     }
 }
