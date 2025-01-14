@@ -67,11 +67,11 @@ transform = transforms.Compose([
 @app.post("/predict/")
 async def predict(file: UploadFile = File(...)):
     """
-    Endpoint to predict autism risk based on an uploaded image.
+    Endpoint to predict autism risk and return probabilities for each class.
     Args:
         file (UploadFile): Uploaded image file.
     Returns:
-        dict: Prediction result.
+        dict: Prediction result including probabilities.
     """
     try:
         # Read and preprocess the image
@@ -85,13 +85,26 @@ async def predict(file: UploadFile = File(...)):
         # Make prediction
         with torch.no_grad():
             outputs = model(image)
-            _, predicted = torch.max(outputs, 1)
+            probabilities = torch.softmax(outputs, dim=1).cpu().numpy()[0]  # Get probabilities
+
+        # Chuyển đổi probabilities sang kiểu float của Python
+        probabilities = probabilities.astype(float)
 
         # Map prediction to class label
         label_map = {0: "Non_Autistic", 1: "Autistic"}
-        result = label_map.get(predicted.item(), "Unknown")
+        predicted_class = probabilities.argmax()
+        predicted_label = label_map.get(predicted_class, "Unknown")
 
-        return {"label": result}
+        # Construct result
+        result = {
+            "label": predicted_label,
+            "probabilities": [
+                {"class": class_id, "label": label_map[class_id], "probability": prob}
+                for class_id, prob in enumerate(probabilities)
+            ],
+        }
+
+        return result
 
     except Exception as e:
         return {"error": f"Failed to process image: {str(e)}"}

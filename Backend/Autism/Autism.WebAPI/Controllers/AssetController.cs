@@ -1,4 +1,5 @@
 ﻿using Autism.Common.ConstValue;
+using Autism.Common.DTOs.Response;
 using Autism.Common.Helpers;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -17,6 +18,7 @@ namespace Autism.WebAPI.Controllers
                 Directory.CreateDirectory(Utils.GetPathUpload());
             }
         }
+
 
         [HttpPost("upload-image")]
         public async Task<IActionResult> UploadImage([FromForm] IFormFile file)
@@ -110,8 +112,13 @@ namespace Autism.WebAPI.Controllers
                             return StatusCode(500, new { message = "Phân loại thất bại", detail = responseString });
                         }
 
-                        var result = JsonConvert.DeserializeObject<dynamic>(responseString);
-                        return Ok(new { label = result.label?.ToString() ?? "Không xác định" });
+                        var result = JsonConvert.DeserializeObject<PredictionResult>(responseString);
+                        return Ok(new
+                        {
+                            label = result.label ?? "Không xác định",
+                            probabilities = result.probabilities ?? new List<Probability>()
+                        });
+
                     }
                 }
             }
@@ -131,4 +138,5 @@ namespace Autism.WebAPI.Controllers
 
 
     }
+
 }
