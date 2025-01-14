@@ -76,6 +76,48 @@ namespace Autism.WebAPI.Controllers
                 return StatusCode(HttpStatusCode.InternalServerError, HttpStatusCode.HeThongGapSuCo);
             }
         }
+        [HttpPost("save-image")]
+        public async Task<IActionResult> SaveImage([FromForm] IFormFile file)
+        {
+            try
+            {
+                if (file == null || file.Length == 0)
+                {
+                    return BadRequest(new { message = "Bạn chưa chọn file." });
+                }
+
+                var originalFileName = file.FileName;
+                var fileName = GenerateUniqueFileName(originalFileName);
+                var filePath = Path.Combine(Utils.GetPathUpload(), fileName);
+
+                using (var stream = new FileStream(filePath, FileMode.Create))
+                {
+                    await file.CopyToAsync(stream);
+                }
+
+                return Ok(new { filePath = $"/images/{fileName}" });
+            }
+            catch (Exception e)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, new { message = "Hệ thống gặp sự cố", detail = e.Message });
+            }
+        }
+
+        // Phương thức giả định để tạo tên file duy nhất dựa trên tên file gốc
+        private string GenerateUniqueFileName(string originalFileName)
+        {
+            string fileNameWithoutExtension = Path.GetFileNameWithoutExtension(originalFileName);
+            string extension = Path.GetExtension(originalFileName);
+            string newFileName = originalFileName;
+            int counter = 1;
+
+            while (System.IO.File.Exists(Path.Combine(Utils.GetPathUpload(), newFileName)))
+            {
+                newFileName = $"{fileNameWithoutExtension}({counter++}){extension}";
+            }
+
+            return newFileName;
+        }
         [HttpPost("classify-image")]
         public async Task<IActionResult> ClassifyImage([FromForm] IFormFile file)
         {

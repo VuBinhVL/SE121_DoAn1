@@ -20,6 +20,7 @@
   <ItemGroup>
     <Folder Include="Areas\Admin\" />
     <Folder Include="Areas\Customer\" />
+    <Folder Include="images\" />
     <Folder Include="Script\" />
   </ItemGroup>
 

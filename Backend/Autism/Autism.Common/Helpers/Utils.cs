@@ -12,7 +12,15 @@ namespace Autism.Common.Helpers
 
         public static string GetPathUpload()
         {
-            return Path.Combine(DesktopPath, "Uploads");
+            string currentDirectory = Directory.GetCurrentDirectory();
+            string imagesPath = Path.Combine(currentDirectory, "images");
+
+            if (!Directory.Exists(imagesPath))
+            {
+                Directory.CreateDirectory(imagesPath);
+            }
+
+            return imagesPath;
         }
 
         public static string GetPathLog()

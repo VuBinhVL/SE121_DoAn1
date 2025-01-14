@@ -8,6 +8,7 @@ using System.Text;
 using Autism.Common.Helpers;
 using Autism.Service;
 using Autism.DataAccess.Repositories;
+using Microsoft.Extensions.FileProviders;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -28,12 +29,14 @@ builder.Services.AddScoped<IChiTietBaiQuizzRepository, ChiTietBaiQuizzRepository
 builder.Services.AddScoped<IDapAnBaiQuizzRepository, DapAnBaiQuizzRepository>();
 builder.Services.AddScoped<IDapAnBaiQuizzDaChonRepository, DapAnBaiQuizzDaChonRepository>();
 builder.Services.AddScoped<INguoiKiemTraRepository, NguoiKiemTraRepository>();
+builder.Services.AddScoped<IKetQuaKiemTraAnhRepository, KetQuaKiemTraAnhRepository>();
 
 
 // Đăng kí service
 builder.Services.AddScoped<INguoiDungService, NguoiDungService>();
 builder.Services.AddScoped<IBaiQuizzService, BaiQuizzService>();
 builder.Services.AddScoped<INguoiKiemTraService, NguoiKiemTraService>();
+builder.Services.AddScoped<IKetQuaKiemTraAnhService, KetQuaKiemTraAnhService>();
 
 
 //bổ trợ phần token
@@ -137,6 +140,13 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+// Thêm middleware để phục vụ tập tin tĩnh từ thư mục images
+app.UseStaticFiles(new StaticFileOptions
+{
+    FileProvider = new PhysicalFileProvider(
+        Path.Combine(Directory.GetCurrentDirectory(), "images")),
+    RequestPath = "/images"
+});
 app.UseRouting();
 app.UseCors(); // Áp dụng CORS
 
@@ -169,5 +179,6 @@ app.UseEndpoints(endpoints =>
         pattern: "{controller=Home}/{action=Index}/{id?}"
     );
 });
+
 
 app.Run();
