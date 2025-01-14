@@ -2,27 +2,33 @@ import React, { useEffect, useState } from "react";
 import "./TestImageHistory.css";
 import { fetchGet } from "../../../lib/httpHandler";
 import { showErrorMessageBox } from "../../../components/MessageBox/ErrorMessageBox/showErrorMessageBox";
-import QuizHistoryDetail from "../QuizHistoryDetail/QuizHistoryDetail";
+
 
 const TestImageHistory = () => {
   const [historyData, setHistoryData] = useState([]); // Lưu lịch sử kiểm tra ảnh
-  const [showPopup, setShowPopup] = useState(false); // Trạng thái hiển thị popup chi tiết kiểm tra
-  const [selectedCheckId, setSelectedCheckId] = useState(null); // ID kiểm tra ảnh được chọn
+
 
   // Gọi API lấy lịch sử kiểm tra ảnh
   useEffect(() => {
-    const uri = "/api/kiem-tra-anh/lich-su-kiem-tra"; // Giả sử đây là endpoint mới
+    const uri = "/api/kiem-tra-anh/lich-su-kiem-tra-anh";
     fetchGet(
       uri,
       (res) => {
-        if (res && res.lichSuKiemTra) {
-          // Map dữ liệu API thành cấu trúc phù hợp
-          const mappedData = res.lichSuKiemTra.map((item) => ({
-            id: item.idKiemTra,
-            name: item.tenNguoiKiemTra,
-            date: item.ngayKiemTra, // Lấy phần ngày
-            result: item.ketQua, // Kết quả kiểm tra
-          }));
+        console.log('API Response:', res);
+        if (res && res.lichSuKiemTraAnhs) { // Kiểm tra xem có thuộc tính lichSuKiemTraAnhs
+            const mappedData = res.lichSuKiemTraAnhs.map((item) => ({
+                id: item.idKiemTraAnh, // ID kiểm tra
+                name: item.tenNguoiKiemTra, // Sử dụng đúng tên thuộc tính
+                date: item.ngayKiemTra,
+                result: item.ketQua,
+                autismProb: item.autismProb,
+                nonAutismProb: item.non_AutismProb,
+                image: item.image
+              }));
+              // Log đường dẫn ảnh
+              mappedData.forEach(item => {
+                console.log(`Image Path: /images/${item.image}`);
+              });              
           setHistoryData(mappedData);
         }
       },
@@ -34,16 +40,13 @@ const TestImageHistory = () => {
   // Định dạng ngày kiểm tra
   const formatDate = (dateString) => {
     const date = new Date(dateString);
+    if (isNaN(date.getTime())) { // Kiểm tra nếu dateString không hợp lệ
+      return 'N/A';
+    }
     const day = date.getDate().toString().padStart(2, "0");
     const month = (date.getMonth() + 1).toString().padStart(2, "0");
     const year = date.getFullYear();
     return `${day}/${month}/${year}`;
-  };
-
-  // Hiển thị popup khi nhấn "Xem chi tiết"
-  const handleViewDetails = (id) => {
-    setSelectedCheckId(id); // Lưu ID kiểm tra ảnh được chọn
-    setShowPopup(true); // Hiển thị popup
   };
 
   return (
@@ -56,42 +59,40 @@ const TestImageHistory = () => {
             <th>Tên người kiểm tra</th>
             <th>Ngày kiểm tra</th>
             <th>Kết quả</th>
-            <th>Thao tác</th>
+            <th>Autism Prob</th>
+            <th>Non-Autism Prob</th>
+            <th>Ảnh</th>
           </tr>
         </thead>
         <tbody>
-          {historyData.length > 0 ? (
-            historyData.map((item, index) => (
-              <tr key={item.id}>
-                <td>{index + 1}</td>
-                <td>{item.name}</td>
-                <td>{formatDate(item.date)}</td>
-                <td>{item.result}</td>
-                <td>
-                  <button
-                    onClick={() => handleViewDetails(item.id)}
-                    className="view-details-button"
-                  >
-                    Xem chi tiết
-                  </button>
-                </td>
-              </tr>
-            ))
-          ) : (
-            <tr>
-              <td colSpan="5" style={{ textAlign: "center" }}>
-                Không có dữ liệu
-              </td>
-            </tr>
-          )}
+        {historyData.length > 0 ? (
+  historyData.map((item, index) => (
+    <tr key={item.id}>
+      <td>{index + 1}</td>
+      <td>{item.name}</td>
+      <td>{formatDate(item.date)}</td>
+      <td>{item.result}</td>
+      <td>{item.autismProb != null ? (item.autismProb * 100).toFixed(2) + '%' : 'N/A'}</td>
+      <td>{item.nonAutismProb != null ? (item.nonAutismProb * 100).toFixed(2) + '%' : 'N/A'}</td>
+      <td>
+      <img 
+  src={`https://localhost:7000${item.image}`} 
+  alt={item.result} 
+  className="history-image" 
+/>
+</td>
+    </tr>
+  ))
+) : (
+  <tr>
+    <td colSpan="7" style={{ textAlign: "center" }}>
+      Không có dữ liệu
+    </td>
+  </tr>
+)}
+
         </tbody>
       </table>
-      {showPopup && (
-        <QuizHistoryDetail
-          id={selectedCheckId}
-          onClose={() => setShowPopup(false)}
-        />
-      )}
     </div>
   );
 };

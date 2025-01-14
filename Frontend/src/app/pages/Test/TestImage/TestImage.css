@@ -1,4 +1,22 @@
 /* TestImage.css */
+.save {
+  background-color: green; /* Màu nền xanh lá cây */
+  color: white; /* Màu chữ trắng để dễ đọc trên nền xanh lá cây */
+  border: none; /* Loại bỏ viền nếu có */
+  padding: 10px 20px; /* Khoảng cách bên trong nút */
+  text-align: center; /* Căn giữa văn bản */
+  text-decoration: none; /* Loại bỏ gạch chân nếu có */
+  display: inline-block; /* Hiển thị như một khối nằm trong dòng */
+  font-size: 16px; /* Kích thước chữ */
+  margin: 4px 2px; /* Khoảng cách bên ngoài nút */
+  cursor: pointer; /* Thay đổi con trỏ khi di chuột vào */
+  border-radius: 5px; /* Bo tròn góc */
+  transition: background-color 0.3s; /* Hiệu ứng chuyển màu khi hover */
+}
+
+.save:hover {
+  background-color: darkgreen; /* Màu nền thay đổi khi hover */
+}
 
 body {
     font-family: Arial, sans-serif;
