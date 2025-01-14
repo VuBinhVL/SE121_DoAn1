@@ -15,6 +15,7 @@ import Quizz from "../pages/Test/Quizz/Quizz";
 import Game2 from "../pages/Game/Game2/Game2";
 import Game3 from "../pages/Game/Game3";
 import Login from "../pages/Other/Login";
+import ForgotPassword from "../pages/Other/ForgotPassword";
 
 export default function MainRoutes() {
   return (
@@ -34,6 +35,7 @@ export default function MainRoutes() {
         <Route path="/game/game2" element={<Game2 />} />
         <Route path="/game/game3" element={<Game3 />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="*" element={<PageNotFound />} />
       </Routes>
       <Footer />

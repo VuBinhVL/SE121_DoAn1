@@ -1,4 +1,4 @@
-let BE_ENPOINT = "https://localhost:7017";
+let BE_ENPOINT = "https://localhost:7000";
 
 const HEADERS = {
   "Content-Type": "application/json",

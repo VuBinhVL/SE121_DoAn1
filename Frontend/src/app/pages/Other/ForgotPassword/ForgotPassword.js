@@ -1,20 +1,19 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-
-import "./Login.css";
+import "./ForgotPassword.css";
 import { fetchPost } from "../../../lib/httpHandler";
 
-export default function Login() {
+export default function ForgotPassword() {
   const [tentaikhoan, setTentaikhoan] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("");
   const navigate = useNavigate();
 
-  const handleLogin = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     const uri = "/api/login";
     const data = {
       tenTaiKhoan: tentaikhoan,
-      matKhau: password,
+      email: email,
     };
     fetchPost(
       uri,
@@ -30,19 +29,19 @@ export default function Login() {
     navigate("/register");
   };
 
-  const handleForgotPassword = () => {
+  const handleLogin = () => {
     // Điều hướng đến trang quên mật khẩu
-    navigate("/forgot-password");
+    navigate("/login");
   };
 
   return (
-    <div className="login-container">
-      <form className="login-form" onSubmit={handleLogin}>
-        <h2>Đăng Nhập</h2>
+    <div className="forgot-password-container">
+      <form className="forgot-password-form" onSubmit={handleSubmit}>
+        <h2>Quên mật khẩu</h2>
 
         {/* Trường nhập tên tài khoản */}
         <div className="form-group">
-          <label htmlFor="email">Tên tài khoản</label>
+          <label htmlFor="tentaikhoan">Tên tài khoản</label>
           <input
             type="tentaikhoan"
             id="tentaikhoan"
@@ -53,19 +52,19 @@ export default function Login() {
           />
         </div>
 
-        {/* Trường nhập Mật khẩu */}
+        {/* Trường nhập email */}
         <div className="form-group">
-          <label htmlFor="password">Mật khẩu</label>
+          <label htmlFor="email">Email</label>
           <input
-            type="password"
-            id="password"
-            placeholder="Nhập mật khẩu của bạn"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            type="email"
+            id="email"
+            placeholder="Nhập email của bạn"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
             required
           />
         </div>
-        {/* Nút tạo tài khoản và quên mật khẩu */}
+        {/* Nút tạo tài khoản và đăng ký */}
         <div className="action-buttons">
           <button
             type="button"
@@ -74,17 +73,13 @@ export default function Login() {
           >
             Tạo Tài Khoản
           </button>
-          <button
-            type="button"
-            className="forgot-password-button"
-            onClick={handleForgotPassword}
-          >
-            Quên Mật Khẩu
+          <button type="button" className="login-button" onClick={handleLogin}>
+            Đăng nhập
           </button>
         </div>
-        {/* Nút đăng nhập */}
-        <button type="submit" className="login-button">
-          Đăng Nhập
+        {/* Nút gửi password */}
+        <button type="submit" className="forgot-password-button">
+          Gửi mật khẩu qua email
         </button>
       </form>
     </div>
