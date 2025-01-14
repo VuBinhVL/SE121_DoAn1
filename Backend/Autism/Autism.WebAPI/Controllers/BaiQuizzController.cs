@@ -36,7 +36,7 @@ namespace Autism.WebAPI.Controllers.Customer
         [HttpPost("save")]
         public async Task<IActionResult> SaveQuizzHistory(Request_SaveQuizHistoryDTO? request)
         {
-            var rs = await _baiQuizzService.SaveQuizzHistory(request);
+            var rs = await _baiQuizzService.SaveQuizzHistory(request, HttpContext);
             return StatusCode(rs.HttpStatusCode, new { message = rs.Message });
         }
         [HttpGet("lich-su-lam-bai")]

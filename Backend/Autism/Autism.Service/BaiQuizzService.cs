@@ -10,6 +10,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -18,7 +19,7 @@ namespace Autism.Service
     public interface IBaiQuizzService
     {
         Task<Response_BaiQuizzDTO> HienThiBaiQuizz();
-        Task<ResponseMessage> SaveQuizzHistory(Request_SaveQuizHistoryDTO request);
+        Task<ResponseMessage> SaveQuizzHistory(Request_SaveQuizHistoryDTO request, HttpContext httpContext);
         Task<Response_LichSuLamBaiDTO> GetListLichSuLamBai(HttpContext httpContext);
         Task<Response_ChiTietLamBaiQuizzDTO> GetChiTietLamBaiQuizz(int idBaiQuizz);
     }
@@ -173,11 +174,17 @@ namespace Autism.Service
             return response;
         }
 
-        public async Task<ResponseMessage> SaveQuizzHistory(Request_SaveQuizHistoryDTO request)
+
+        public async Task<ResponseMessage> SaveQuizzHistory(Request_SaveQuizHistoryDTO request, HttpContext httpContext)
         {
+            var findNguoiDung = await GetNguoiDungByHttpContext(httpContext);
+            if (findNguoiDung == null)
+            {
+                throw new Exception("Nguoi Dung ko hop le");
+            }
             var baiQuizz = new BaiQuizz
             {
-                NguoiDungId = request.NguoiDungId,
+                NguoiDungId = findNguoiDung.NguoiDungId,
                 NgayLamQuizz = request.NgayLamQuizz,
                 NguoiKiemTraId = request.NguoiKiemTraId,
                 TongDiem = 0 // Khởi tạo tổng điểm là 0, chúng ta sẽ cập nhật nó sau
