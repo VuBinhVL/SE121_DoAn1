@@ -1,4 +1,5 @@
-﻿using Autism.Common.DTOs.Request.BaiQuizz;
+﻿using Autism.Common.ConstValue;
+using Autism.Common.DTOs.Request.BaiQuizz;
 using Autism.Common.DTOs.Request.NguoiDung;
 using Autism.Service;
 using Microsoft.AspNetCore.Http;
@@ -19,7 +20,20 @@ namespace Autism.WebAPI.Controllers
         public async Task<IActionResult> AddNguoiKiemTraAsync(Request_AddNguoiKiemTraDTO? request)
         {
             var rs = await _nguoiKiemTraService.AddNguoiKiemTraAsync(request);
-            return StatusCode(rs.HttpStatusCode, new { message = rs.Message });
+            return Ok(rs);
+        }
+        [HttpGet("get-list-nguoi-kiem-tra")]
+        public async Task<IActionResult> GetListNguoiKiemTra()
+        {
+            try
+            {
+                var rs = await _nguoiKiemTraService.GetListNguoiKiemTraAsync();
+                return Ok(rs);
+            }
+            catch (Exception e)
+            {
+                return StatusCode(HttpStatusCode.InternalServerError, HttpStatusCode.HeThongGapSuCo);
+            }
         }
     }
 }
