@@ -5,6 +5,7 @@ using Autism.Common.DTOs.Response.BaiQuizz;
 using Autism.DataAccess.Infrastructure;
 using Autism.DataAccess.Models;
 using Autism.DataAccess.Repositories;
+using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -18,7 +19,7 @@ namespace Autism.Service
     {
         Task<Response_BaiQuizzDTO> HienThiBaiQuizz();
         Task<ResponseMessage> SaveQuizzHistory(Request_SaveQuizHistoryDTO request);
-        Task<Response_LichSuLamBaiDTO> GetListLichSuLamBai();
+        Task<Response_LichSuLamBaiDTO> GetListLichSuLamBai(HttpContext httpContext);
         Task<Response_ChiTietLamBaiQuizzDTO> GetChiTietLamBaiQuizz(int idBaiQuizz);
     }
     public class BaiQuizzService : IBaiQuizzService
@@ -30,9 +31,10 @@ namespace Autism.Service
         private readonly IDapAnBaiQuizzDaChonRepository _dapAnBaiQuizzDaChonRepository;
         private readonly IDapAnBaiQuizzRepository _dapAnBaiQuizzRepository;
         private readonly INguoiKiemTraRepository _nguoiKiemTraRepository;
+        private readonly INguoiDungRepository _nguoiDungRepository;
         public BaiQuizzService (IBaiQuizzRepository baiQuizzRepository,ICauHoiBaiQuizzRepository cauHoiBaiQuizzRepository
             ,IUnitOfWork unitOfWork, IChiTietBaiQuizzRepository chiTietBaiQuizzRepository, IDapAnBaiQuizzDaChonRepository dapAnBaiQuizzDaChonRepository,
-            IDapAnBaiQuizzRepository dapAnBaiQuizzRepository,INguoiKiemTraRepository nguoiKiemTraRepository)
+            IDapAnBaiQuizzRepository dapAnBaiQuizzRepository,INguoiKiemTraRepository nguoiKiemTraRepository,INguoiDungRepository nguoiDungRepository)
         {
             _baiQuizzRepository =baiQuizzRepository;
             _cauHoiBaiQuizzRepository = cauHoiBaiQuizzRepository;
@@ -41,6 +43,7 @@ namespace Autism.Service
             _dapAnBaiQuizzDaChonRepository = dapAnBaiQuizzDaChonRepository;
             _dapAnBaiQuizzRepository = dapAnBaiQuizzRepository ;
             _nguoiKiemTraRepository = nguoiKiemTraRepository;
+            _nguoiDungRepository = nguoiDungRepository;
         }
 
         public async Task<Response_ChiTietLamBaiQuizzDTO> GetChiTietLamBaiQuizz(int idBaiQuizz)
@@ -103,16 +106,32 @@ namespace Autism.Service
 
             return response;
         }
-
-        public async Task<Response_LichSuLamBaiDTO> GetListLichSuLamBai()
+        public async Task<NguoiDung> GetNguoiDungByHttpContext(HttpContext httpContext)
         {
+            try
+            {
+                var userId = int.Parse(httpContext.User.FindFirst("UserId")?.Value);
+                return await _nguoiDungRepository.GetSingleByIdAsync(userId);
+            }
+            catch
+            {
+                return null;
+            }
+        }
+        public async Task<Response_LichSuLamBaiDTO> GetListLichSuLamBai(HttpContext httpContext)
+        {
+            var findNguoiDung = await GetNguoiDungByHttpContext(httpContext);
+            if (findNguoiDung == null)
+            {
+                throw new Exception("Nguoi Dung ko hop le");
+            }
             var rs = new Response_LichSuLamBaiDTO
             {
                 LichSuLamBai = new List<LichSuLamBaiDTO>()
             };
 
             // Lấy danh sách bài làm từ repository
-            var baiQuizzs = await _baiQuizzRepository.GetAllAsync();
+            var baiQuizzs = await _baiQuizzRepository.FindAsync(bq=> bq.NguoiDungId == findNguoiDung.NguoiDungId);
 
             foreach (var baiQuizz in baiQuizzs)
             {

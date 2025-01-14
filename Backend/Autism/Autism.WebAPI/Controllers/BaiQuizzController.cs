@@ -44,7 +44,7 @@ namespace Autism.WebAPI.Controllers.Customer
         {
             try
             {
-                var rs = await _baiQuizzService.GetListLichSuLamBai();
+                var rs = await _baiQuizzService.GetListLichSuLamBai(HttpContext);
                 return Ok(rs);
             }
             catch (Exception e)
