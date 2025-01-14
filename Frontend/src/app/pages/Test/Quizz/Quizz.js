@@ -10,6 +10,7 @@ const Quizz = () => {
   const [answers, setAnswers] = useState([]); // Lưu đáp án
   const [currentPage, setCurrentPage] = useState(0);
   const navigate = useNavigate();
+  const [nguoiDungId, setnguoiDungId] = useState("");
   // Truyền thông tin qua
   const location = useLocation();
   const { id } = location.state || {}; // Lấy ID người kiểm tra từ state
@@ -26,6 +27,17 @@ const Quizz = () => {
       },
       (fail) => showErrorMessageBox(fail.message),
       () => showErrorMessageBox("Mất kết nối đến máy chủ")
+    );
+
+    const uri2 = "/api/info";
+    fetchGet(
+      uri2,
+      (res) => {
+        console.log(res);
+        setnguoiDungId(res.nguoiDungId);
+      },
+      (fail) => console.log(fail.message),
+      () => console.log("Mất kết nối")
     );
   }, [id]);
 
@@ -55,6 +67,7 @@ const Quizz = () => {
     }));
 
     const data = {
+      nguoiDungId: nguoiDungId,
       ngayLamQuizz,
       nguoiKiemTraId: id || 0, // ID người kiểm tra từ location.state
       chiTietBaiQuizzs,
