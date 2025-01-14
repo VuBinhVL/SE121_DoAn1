@@ -91,11 +91,11 @@ namespace Autism.WebAPI.Areas.Customer
             }
         }
         [HttpGet("info")]
-        public async Task<IActionResult> HienThiThongTinNguoiDungAsync(HttpContext httpContext)
+        public async Task<IActionResult> HienThiThongTinNguoiDungAsync()
         {
             try
             {
-                var rs = await _nguoiDungService.HienThiThongTinNguoiDungAsync(httpContext);
+                var rs = await _nguoiDungService.HienThiThongTinNguoiDungAsync(HttpContext);
                 return Ok(rs);
             }
             catch (Exception e)
