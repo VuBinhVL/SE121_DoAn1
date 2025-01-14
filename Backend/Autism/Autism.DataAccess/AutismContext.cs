@@ -74,11 +74,11 @@ namespace Autism.DataAccess
             modelBuilder.Entity<ChiTietBaiQuizz>()
             .HasKey(cd => new { cd.BaiQuizzId, cd.CauHoiBaiQuizzId });
 
-            modelBuilder.Entity<ChiTietDapAnQuizz>()
-            .HasKey(cd => new { cd.CauHoiBaiQuizzId, cd.DapAnBaiQuizzId });
+            //modelBuilder.Entity<ChiTietDapAnQuizz>()
+            //.HasKey(cd => new { cd.CauHoiBaiQuizzId, cd.DapAnBaiQuizzId });
 
-            modelBuilder.Entity<DapAnBaiQuizzDaChon>()
-            .HasKey(cd => new { cd.CauHoiBaiQuizzId, cd.DapAnBaiQuizzId });
+            //modelBuilder.Entity<DapAnBaiQuizzDaChon>()
+            //.HasKey(cd => new { cd.CauHoiBaiQuizzId, cd.DapAnBaiQuizzId });
 
             modelBuilder.Entity<ChiTietGame>()
             .HasKey(cd => new { cd.GameId, cd.CauHoiGameId });

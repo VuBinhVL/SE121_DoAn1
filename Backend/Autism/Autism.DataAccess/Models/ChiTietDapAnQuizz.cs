@@ -10,7 +10,8 @@ namespace Autism.DataAccess.Models
 {
     public class ChiTietDapAnQuizz
     {
-        
+        [Key] 
+        public int ChiTietDapAnQuizzId { get; set; }
 
         [Required]
         public int CauHoiBaiQuizzId { get; set; }
