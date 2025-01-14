@@ -19,6 +19,8 @@ import ForgotPassword from "../pages/Other/ForgotPassword";
 import Register from "../pages/Other/Register";
 import AccountInformation from "../pages/Account/AccountInformation";
 import QuizHistory from "../pages/Test/QuizHistory";
+import TestImage from "../pages/Test/TestImage";
+import ImageHistory from "../pages/Test/TestImageHistory";
 
 export default function MainRoutes() {
   return (
@@ -32,6 +34,7 @@ export default function MainRoutes() {
         <Route path="/education/news-video" element={<NewsVideo />} />
         <Route path="/test" element={<Test />} />
         <Route path="/test/quizz" element={<Quizz />} />
+        <Route path="/test/testimage" element={<TestImage />} />
         <Route path="/story" element={<Story />} />
         <Route path="/game" element={<GamePage />} />
         <Route path="/game/game1" element={<Game1 />} />
@@ -42,6 +45,7 @@ export default function MainRoutes() {
         <Route path="/register" element={<Register />} />
         <Route path="/profile" element={<AccountInformation />} />
         <Route path="/quiz-history" element={<QuizHistory />} />
+        <Route path="/image-history" element={<ImageHistory />} />
         <Route path="*" element={<PageNotFound />} />
       </Routes>
       <Footer />

@@ -12,7 +12,7 @@ export default function Test() {
 
   //Sự kiện cho nút kiểm tra ảnh bằng deeplearning
   const handleDeep = () => {
-    setTargetPath("/home"); // Đường dẫn
+    setTargetPath("/test/testimage"); // Đường dẫn
     setShowPopup(true); // Mở popup
   };
 
