@@ -21,6 +21,10 @@ namespace Autism.DataAccess.Models
         [Required]
         [ForeignKey(nameof(DapAnBaiQuizzId))]
         public DapAnBaiQuizz? DapAnBaiQuizz { get; set; }
+        [Required]
+        public int BaiQuizzId { get; set; } // Thêm khóa ngoại này
+        [ForeignKey(nameof(BaiQuizzId))]
+        public BaiQuizz? BaiQuizz { get; set; }
 
         public bool DungSai { get; set; }
     }

@@ -187,15 +187,14 @@ namespace Autism.Service
                 NguoiDungId = findNguoiDung.NguoiDungId,
                 NgayLamQuizz = request.NgayLamQuizz,
                 NguoiKiemTraId = request.NguoiKiemTraId,
-                TongDiem = 0 // Khởi tạo tổng điểm là 0, chúng ta sẽ cập nhật nó sau
+                TongDiem = 0
             };
 
             await _baiQuizzRepository.AddAsync(baiQuizz);
             await _unitOfWork.CommitAsync(); // Lưu để lấy BaiQuizzId
 
-            int correctAnswersCount = 0; // Biến để đếm số câu trả lời đúng
+            int correctAnswersCount = 0;
 
-            // Lưu chi tiết bài thi
             foreach (var questionAnswer in request.ChiTietBaiQuizzs)
             {
                 var chiTietBaiQuizz = new ChiTietBaiQuizz
@@ -205,12 +204,12 @@ namespace Autism.Service
                 };
                 await _chiTietBaiQuizzRepository.AddAsync(chiTietBaiQuizz);
 
-                // Lưu đáp án đã chọn cho từng câu hỏi và đếm số câu trả lời đúng
                 foreach (var dapAnId in questionAnswer.DapAnBaiQuizzIds)
                 {
                     var dungSai = await _dapAnBaiQuizzRepository.GetDungSaiAsync(dapAnId);
                     var dapAnDaChon = new DapAnBaiQuizzDaChon
                     {
+                        BaiQuizzId = baiQuizz.BaiQuizzId, // Thêm dòng này
                         CauHoiBaiQuizzId = questionAnswer.CauHoiBaiQuizzId,
                         DapAnBaiQuizzId = dapAnId,
                         DungSai = dungSai
@@ -224,10 +223,9 @@ namespace Autism.Service
                 }
             }
 
-            // Cập nhật tổng điểm sau khi đếm số câu trả lời đúng
             baiQuizz.TongDiem = correctAnswersCount;
             _baiQuizzRepository.Update(baiQuizz);
-            await _unitOfWork.CommitAsync(); // Lưu lại tổng điểm đã cập nhật
+            await _unitOfWork.CommitAsync();
 
             return new ResponseMessage(HttpStatusCode.Ok, "Lưu lịch sử làm bài thành công");
         }
