@@ -1,0 +1,84 @@
+.register-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f5f5f5;
+}
+
+.register-container .register-form {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  max-width: 400px;
+  width: 100%;
+}
+
+.register-container .register-form h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.register-container .form-group {
+  margin-bottom: 15px;
+}
+
+.register-container .form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 14px;
+  color: #555;
+}
+
+.register-container .form-group input {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.register-container .form-group input:focus {
+  outline: none;
+  border-color: #b0e0e6;
+}
+
+.register-container .register-button {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  background-color: #b0e0e6;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.register-container .register-button:hover {
+  background-color: #44dbef;
+}
+/* Nút đăng nhập + nút quên mật khẩu */
+.register-container .action-buttons {
+  display: flex;
+  justify-content: space-between; /* Căn đều hai nút */
+}
+
+.register-container .forgot-password-button,
+.register-container .login-button {
+  padding: 10px;
+  font-size: 14px;
+  background-color: transparent;
+  color: #333;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.register-container .forgot-password-button:hover,
+.register-container .login-button:hover {
+  font-weight: bold;
+}
