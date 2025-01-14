@@ -17,8 +17,7 @@ namespace Autism.DataAccess.Models
         public string? HoTen { get; set; }
         [Required]
         public DateTime? NgaySinh { get; set; }
-        [Required]
-        public string Image { get; set; }
+       
         public IEnumerable<KetQuaKiemTraAnh>? KetQuaKiemTraAnhs { get; set; }
         public IEnumerable<BaiQuizz>? BaiQuizzs { get; set; }
 

@@ -49,7 +49,7 @@ namespace Autism.DataAccess
                 .Property(e => e.Image)
                 .HasDefaultValue("no_img.png");
 
-            modelBuilder.Entity<NguoiKiemTra>()
+            modelBuilder.Entity<KetQuaKiemTraAnh>()
                 .Property(e => e.Image)
                 .HasDefaultValue("[\"no_img.png\"]");
 
