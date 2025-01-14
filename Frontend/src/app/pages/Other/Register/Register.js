@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Register.css";
 import { fetchPost } from "../../../lib/httpHandler";
+import { showErrorMessageBox } from "../../../components/MessageBox/ErrorMessageBox/showErrorMessageBox";
+import { showSuccessMessageBox } from "../../../components/MessageBox/SuccessMessageBox/showSuccessMessageBox";
 
 export default function Register() {
   const [hoTen, sethoTen] = useState("");
@@ -13,17 +15,22 @@ export default function Register() {
   //Đăng ký tài khoản
   const handleSubmit = (e) => {
     e.preventDefault();
-    const uri = "/api/login";
+    const uri = "/api/register";
     const data = {
-      tenTaiKhoan: tentaikhoan,
+      hoTen: hoTen,
       email: email,
+      tenTaiKhoan: tentaikhoan,
+      matKhau: matkhau,
     };
     fetchPost(
       uri,
       data,
-      (res) => alert("Đăng nhập thành công"),
-      (fail) => alert("Đăng nhập thất bại"),
-      () => alert("Mất kết nối đến máy chủ")
+      (res) => {
+        showSuccessMessageBox(res.message);
+        navigate("/login");
+      },
+      (fail) => showErrorMessageBox(fail.message),
+      () => showErrorMessageBox("Mất kết nối đến máy chủ")
     );
   };
 

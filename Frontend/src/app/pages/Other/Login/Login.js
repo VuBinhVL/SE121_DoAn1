@@ -15,7 +15,7 @@ export default function Login() {
     const uri = "/api/login";
     const data = {
       tenTaiKhoan: tentaikhoan,
-      matKhau: tentaikhoan,
+      matKhau: password,
     };
 
     fetchPost(
