@@ -31,6 +31,8 @@ namespace Autism.DataAccess.Models
         public string KetQua {  get; set; }
 
         public string? GhiChu { get; set; }
+        public double AutismProb { get; set; }
+        public double Non_AutismProb {  get; set; }
         [Required]
         public string Image { get; set; }
 
