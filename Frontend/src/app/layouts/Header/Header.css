@@ -9,6 +9,7 @@
   height: fit-content;
   position: sticky;
   top: 0; /* Giữ header ở trên cùng khi cuộn */
+  z-index: 1000;
 }
 
 /* Style cho logo và tiêu đề */

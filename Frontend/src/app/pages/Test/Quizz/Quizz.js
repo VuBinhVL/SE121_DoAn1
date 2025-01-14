@@ -1,46 +1,77 @@
 import React, { useEffect, useState } from "react";
 import "./Quizz.css";
-import { useLocation } from "react-router-dom"; // Import useLocation
+import { useLocation, useNavigate } from "react-router-dom";
 import { showErrorMessageBox } from "../../../components/MessageBox/ErrorMessageBox/showErrorMessageBox";
 import { showSuccessMessageBox } from "../../../components/MessageBox/SuccessMessageBox/showSuccessMessageBox";
-import { fetchGet } from "../../../lib/httpHandler";
+import { fetchGet, fetchPost } from "../../../lib/httpHandler";
 
 const Quizz = () => {
-  const [questionsData, setQuestionsData] = useState([]); //Lưu câu hỏi
-  const [answers, setAnswers] = useState([]); //Lưu câu trả lời
+  const [questionsData, setQuestionsData] = useState([]); // Lưu câu hỏi
+  const [answers, setAnswers] = useState([]); // Lưu đáp án
   const [currentPage, setCurrentPage] = useState(0);
-
-  //Truyền thông tin qua
+  const navigate = useNavigate();
+  // Truyền thông tin qua
   const location = useLocation();
-  const { id } = location.state || {}; // Lấy thông tin từ state
+  const { id } = location.state || {}; // Lấy ID người kiểm tra từ state
   const questionsPerPage = 5;
 
-  //Gọi API tạo câu hỏi
+  // Gọi API lấy câu hỏi
   useEffect(() => {
-    console.log("Id người kiểm tra: " + id);
     const uri = "/api/baiquizz/cau-hoi-bai-quizz";
     fetchGet(
       uri,
       (res) => {
-        console.log(res);
         setQuestionsData(res.questions); // Lưu danh sách câu hỏi từ API
-        setAnswers(Array(res.questions.length).fill(null)); // Khởi tạo câu trả lời
+        setAnswers(Array(res.questions.length).fill(null)); // Khởi tạo mảng đáp án
       },
       (fail) => showErrorMessageBox(fail.message),
       () => showErrorMessageBox("Mất kết nối đến máy chủ")
     );
   }, [id]);
 
-  const handleAnswer = (index, answer) => {
+  // Xử lý chọn đáp án
+  const handleAnswer = (index, answerId) => {
     const newAnswers = [...answers];
-    newAnswers[index] = answer;
+    newAnswers[index] = answerId; // Lưu ID đáp án
     setAnswers(newAnswers);
   };
 
-  //Nộp bài quizz
+  // Nộp bài quiz
   const handleSubmit = () => {
-    console.log(answers);
-    alert("Quiz submitted! Check the console for answers.");
+    // Kiểm tra tất cả câu hỏi đã được trả lời
+    const unansweredQuestions = answers.findIndex((answer) => answer === null);
+    if (unansweredQuestions !== -1) {
+      showErrorMessageBox(`Bạn cần trả lời tất cả câu hỏi!`);
+      return;
+    }
+
+    const uri = "/api/baiquizz/save";
+    const ngayLamQuizz = new Date().toISOString(); // Lấy ngày hiện tại
+
+    // Chuẩn bị dữ liệu gửi API
+    const chiTietBaiQuizzs = questionsData.map((question, index) => ({
+      cauHoiBaiQuizzId: question.questionId,
+      dapAnBaiQuizzIds: answers[index] ? [answers[index]] : [], // Nếu có đáp án, thêm vào mảng
+    }));
+
+    const data = {
+      ngayLamQuizz,
+      nguoiKiemTraId: id || 0, // ID người kiểm tra từ location.state
+      chiTietBaiQuizzs,
+    };
+
+    //console.log(data);
+    // Gọi API
+    fetchPost(
+      uri,
+      data,
+      (res) => {
+        showSuccessMessageBox(res.message); // Hiển thị thông báo thành công
+        navigate("/quiz-history"); // Chuyển hướng về trang lịch sử quiz
+      },
+      (fail) => showErrorMessageBox(fail.message), // Hiển thị thông báo lỗi
+      () => showErrorMessageBox("Mất kết nối đến máy chủ") // Lỗi mạng
+    );
   };
 
   // Tiến đến trang sau
@@ -50,11 +81,12 @@ const Quizz = () => {
     );
   };
 
-  //Quay lại trang trước
+  // Quay lại trang trước
   const handleBack = () => {
     setCurrentPage((prev) => Math.max(prev - 1, 0));
   };
 
+  // Phân trang
   const indexOfLastQuestion = (currentPage + 1) * questionsPerPage;
   const indexOfFirstQuestion = indexOfLastQuestion - questionsPerPage;
   const currentQuestions = questionsData.slice(
@@ -76,11 +108,11 @@ const Quizz = () => {
                   <input
                     type="radio"
                     name={`question-${questionIndex}`}
-                    value={answer.answerText}
+                    value={answer.answerId}
                     onChange={() =>
-                      handleAnswer(questionIndex, answer.answerText)
+                      handleAnswer(questionIndex, answer.answerId)
                     }
-                    checked={answers[questionIndex] === answer.answerText}
+                    checked={answers[questionIndex] === answer.answerId}
                   />
                   {answer.answerText}
                 </label>

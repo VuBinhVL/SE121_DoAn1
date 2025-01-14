@@ -25,8 +25,7 @@ const Tester = ({ onClose, targetPath }) => {
       uri,
       data,
       (res) => {
-        console.log(res);
-        navigate(targetPath, { state: { id: res.id } }); // Điều hướng đến trang đích
+        navigate(targetPath, { state: { id: res.nguoiKiemTraId } }); // Điều hướng đến trang đích
         onClose(); // Đóng popup sau khi điều hướng
       },
       (fail) => showErrorMessageBox(fail.message),
