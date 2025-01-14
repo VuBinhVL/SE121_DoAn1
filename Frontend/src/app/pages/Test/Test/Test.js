@@ -1,22 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 import Card from "../../../components/Home/Card/Card"; //Card
 import test from "../../../assets/images/kiemtra.png";
 import quizz from "../../../assets/icons/quizz-test.png";
 import image from "../../../assets/icons/image-test.png";
 import "./Test.css";
-import { useNavigate } from "react-router-dom";
+import Tester from "../Tester/Tester";
 
 export default function Test() {
-  const navigate = useNavigate();
-  //Sự kiện cho nút bài viết video
-  const handleVideo = () => {
-    alert("Đã vào bài viết video");
-    // navigate("/test");
+  const [showPopup, setShowPopup] = useState(false); //Hiển thị popup nhập tên người được kiểm tra
+  const [targetPath, setTargetPath] = useState(""); //Lưu đường dẫn cho popup để navigate
+
+  //Sự kiện cho nút kiểm tra ảnh bằng deeplearning
+  const handleDeep = () => {
+    setTargetPath("/home"); // Đường dẫn
+    setShowPopup(true); // Mở popup
   };
 
   //Sự kiện cho làm quiz
   const handleQuestion = () => {
-    navigate("/test/quizz");
+    setTargetPath("/test/quizz"); // Đường dẫn quiz
+    setShowPopup(true); // Mở popup
   };
   return (
     <div className="test-page">
@@ -29,7 +32,7 @@ export default function Test() {
           icon={quizz}
           title="Kiểm tra bằng hình ảnh"
           description="Áp dụng Deeplearning để phân loại ảnh trẻ có bị tự kỉ hay không."
-          onClick={handleVideo}
+          onClick={handleDeep}
         />
         <Card
           icon={image}
@@ -38,6 +41,12 @@ export default function Test() {
           onClick={handleQuestion}
         />
       </div>
+      {showPopup && (
+        <Tester
+          onClose={() => setShowPopup(false)}
+          targetPath={targetPath} // Truyền đường dẫn đến popup
+        />
+      )}
     </div>
   );
 }

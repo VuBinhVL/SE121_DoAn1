@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./Quizz.css";
+import { useLocation } from "react-router-dom"; // Import useLocation
 import { showErrorMessageBox } from "../../../components/MessageBox/ErrorMessageBox/showErrorMessageBox";
 import { showSuccessMessageBox } from "../../../components/MessageBox/SuccessMessageBox/showSuccessMessageBox";
 import { fetchGet } from "../../../lib/httpHandler";
@@ -8,10 +9,15 @@ const Quizz = () => {
   const [questionsData, setQuestionsData] = useState([]); //Lưu câu hỏi
   const [answers, setAnswers] = useState([]); //Lưu câu trả lời
   const [currentPage, setCurrentPage] = useState(0);
+
+  //Truyền thông tin qua
+  const location = useLocation();
+  const { userName } = location.state || {}; // Lấy thông tin từ state
   const questionsPerPage = 5;
 
   //Gọi API tạo câu hỏi
   useEffect(() => {
+    console.log("Thông tin người kiểm tra: " + userName);
     const uri = "/api/baiquizz/cau-hoi-bai-quizz";
     fetchGet(
       uri,
@@ -23,7 +29,7 @@ const Quizz = () => {
       (fail) => showErrorMessageBox(fail.message),
       () => showErrorMessageBox("Mất kết nối đến máy chủ")
     );
-  }, []);
+  }, [userName]);
 
   const handleAnswer = (index, answer) => {
     const newAnswers = [...answers];

@@ -72,6 +72,9 @@ export default function Header() {
                   <li onClick={() => navigate("/profile")}>
                     Thông tin tài khoản
                   </li>
+                  <li onClick={() => navigate("/profile")}>
+                    Lịch sử kiểm tra ảnh
+                  </li>
                   <li onClick={() => navigate("/quiz-history")}>
                     Lịch sử làm quizz
                   </li>
