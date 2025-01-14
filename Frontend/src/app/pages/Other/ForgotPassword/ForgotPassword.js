@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./ForgotPassword.css";
 import { fetchPost } from "../../../lib/httpHandler";
+import { showSuccessMessageBox } from "../../../components/MessageBox/SuccessMessageBox/showSuccessMessageBox";
+import { showErrorMessageBox } from "../../../components/MessageBox/ErrorMessageBox/showErrorMessageBox";
 
 export default function ForgotPassword() {
   const [tentaikhoan, setTentaikhoan] = useState("");
@@ -10,7 +12,7 @@ export default function ForgotPassword() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const uri = "/api/login";
+    const uri = "/api/forgot-password";
     const data = {
       tenTaiKhoan: tentaikhoan,
       email: email,
@@ -18,9 +20,14 @@ export default function ForgotPassword() {
     fetchPost(
       uri,
       data,
-      (res) => alert("Đăng nhập thành công"),
-      (fail) => alert("Đăng nhập thất bại"),
-      () => alert("Mất kết nối đến máy chủ")
+      (res) => {
+        showSuccessMessageBox(res.message);
+        navigate("/login");
+      },
+      (fail) => {
+        showErrorMessageBox(fail.message);
+      },
+      () => showErrorMessageBox("Mất kết nối đến máy chủ")
     );
   };
 
