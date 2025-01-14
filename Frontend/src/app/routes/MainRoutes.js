@@ -18,6 +18,7 @@ import Login from "../pages/Other/Login";
 import ForgotPassword from "../pages/Other/ForgotPassword";
 import Register from "../pages/Other/Register";
 import AccountInformation from "../pages/Account/AccountInformation";
+import QuizHistory from "../pages/Test/QuizHistory";
 
 export default function MainRoutes() {
   return (
@@ -40,6 +41,7 @@ export default function MainRoutes() {
         <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/register" element={<Register />} />
         <Route path="/profile" element={<AccountInformation />} />
+        <Route path="/quiz-history" element={<QuizHistory />} />
         <Route path="*" element={<PageNotFound />} />
       </Routes>
       <Footer />

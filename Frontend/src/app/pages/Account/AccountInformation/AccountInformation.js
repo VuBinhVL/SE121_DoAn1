@@ -44,7 +44,7 @@ export default function AccountInformation() {
 
   //Gọi API lấy thông tin tài khoản
   useEffect(() => {
-    const uri = "/api/quan-li-thong-tin-ca-nhan";
+    const uri = "/api/info";
     fetchGet(
       uri,
       (data) => {
