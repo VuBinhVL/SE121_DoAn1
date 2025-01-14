@@ -12,12 +12,12 @@ const Quizz = () => {
 
   //Truyền thông tin qua
   const location = useLocation();
-  const { userName } = location.state || {}; // Lấy thông tin từ state
+  const { id } = location.state || {}; // Lấy thông tin từ state
   const questionsPerPage = 5;
 
   //Gọi API tạo câu hỏi
   useEffect(() => {
-    console.log("Thông tin người kiểm tra: " + userName);
+    console.log("Id người kiểm tra: " + id);
     const uri = "/api/baiquizz/cau-hoi-bai-quizz";
     fetchGet(
       uri,
@@ -29,7 +29,7 @@ const Quizz = () => {
       (fail) => showErrorMessageBox(fail.message),
       () => showErrorMessageBox("Mất kết nối đến máy chủ")
     );
-  }, [userName]);
+  }, [id]);
 
   const handleAnswer = (index, answer) => {
     const newAnswers = [...answers];

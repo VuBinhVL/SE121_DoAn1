@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Tester.css";
 import { showErrorMessageBox } from "../../../components/MessageBox/ErrorMessageBox/showErrorMessageBox";
+import { fetchPost } from "../../../lib/httpHandler";
 
 const Tester = ({ onClose, targetPath }) => {
   const [name, setName] = useState(""); //Tên người kiểm tra
@@ -14,8 +15,23 @@ const Tester = ({ onClose, targetPath }) => {
       showErrorMessageBox("Vui lòng nhập đầy đủ thông tin!");
       return;
     }
-    navigate(targetPath, { state: { userName: name } }); // Điều hướng đến trang đích
-    onClose(); // Đóng popup sau khi điều hướng
+    //Gọi API để thêm người kiểm tra
+    const uri = "/api/add-nguoi-kiem-tra";
+    const data = {
+      hoTen: name,
+      ngaySinh: dob,
+    };
+    fetchPost(
+      uri,
+      data,
+      (res) => {
+        console.log(res);
+        navigate(targetPath, { state: { id: res.id } }); // Điều hướng đến trang đích
+        onClose(); // Đóng popup sau khi điều hướng
+      },
+      (fail) => showErrorMessageBox(fail.message),
+      () => showErrorMessageBox("Máy chủ bị mất kết nối")
+    );
   };
 
   return (
