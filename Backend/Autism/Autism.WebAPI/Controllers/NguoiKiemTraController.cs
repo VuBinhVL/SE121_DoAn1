@@ -15,7 +15,7 @@ namespace Autism.WebAPI.Controllers
         {
             _nguoiKiemTraService = nguoiKiemTraService;
         }
-        [HttpPost("add")]
+        [HttpPost("add-nguoi-kiem-tra")]
         public async Task<IActionResult> AddNguoiKiemTraAsync(Request_AddNguoiKiemTraDTO? request)
         {
             var rs = await _nguoiKiemTraService.AddNguoiKiemTraAsync(request);
