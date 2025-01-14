@@ -2,6 +2,7 @@
 using Autism.Common.Helpers;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 
 namespace Autism.WebAPI.Controllers
 {
@@ -73,6 +74,61 @@ namespace Autism.WebAPI.Controllers
                 return StatusCode(HttpStatusCode.InternalServerError, HttpStatusCode.HeThongGapSuCo);
             }
         }
+        [HttpPost("classify-image")]
+        public async Task<IActionResult> ClassifyImage([FromForm] IFormFile file)
+        {
+            string filePath = null;  // Declare filePath outside the try block
+            try
+            {
+                if (file == null || file.Length == 0)
+                {
+                    return BadRequest(new { message = "Bạn chưa chọn file." });
+                }
+
+                // Lưu ảnh vào thư mục tạm thời
+                var fileName = Path.GetRandomFileName() + Path.GetExtension(file.FileName);
+                filePath = Path.Combine(Path.GetTempPath(), fileName);  // Assign filePath here
+
+                using (var stream = new FileStream(filePath, FileMode.Create))
+                {
+                    await file.CopyToAsync(stream);
+                }
+
+                // Gửi ảnh đến API Python
+                using (var client = new HttpClient())
+                using (var form = new MultipartFormDataContent())
+                {
+                    using (var fileStream = new FileStream(filePath, FileMode.Open))
+                    {
+                        form.Add(new StreamContent(fileStream), "file", fileName);
+
+                        var response = await client.PostAsync("http://127.0.0.1:8000/predict/", form);
+                        var responseString = await response.Content.ReadAsStringAsync();
+
+                        if (!response.IsSuccessStatusCode)
+                        {
+                            return StatusCode(500, new { message = "Phân loại thất bại", detail = responseString });
+                        }
+
+                        var result = JsonConvert.DeserializeObject<dynamic>(responseString);
+                        return Ok(new { label = result.label?.ToString() ?? "Không xác định" });
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                return StatusCode(500, new { message = "Hệ thống gặp sự cố", detail = e.Message });
+            }
+            finally
+            {
+                // Xóa file tạm sau khi xử lý xong
+                if (!string.IsNullOrEmpty(filePath) && System.IO.File.Exists(filePath))
+                {
+                    System.IO.File.Delete(filePath);
+                }
+            }
+        }
+
 
     }
 }
