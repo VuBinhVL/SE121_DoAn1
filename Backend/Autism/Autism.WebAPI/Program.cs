@@ -33,6 +33,7 @@ builder.Services.AddScoped<INguoiKiemTraRepository, NguoiKiemTraRepository>();
 // Đăng kí service
 builder.Services.AddScoped<INguoiDungService, NguoiDungService>();
 builder.Services.AddScoped<IBaiQuizzService, BaiQuizzService>();
+builder.Services.AddScoped<INguoiKiemTraService, NguoiKiemTraService>();
 
 
 //bổ trợ phần token
