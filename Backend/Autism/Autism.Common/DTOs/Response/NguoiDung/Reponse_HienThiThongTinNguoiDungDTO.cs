@@ -8,6 +8,7 @@ namespace Autism.Common.DTOs.Response.NguoiDung
 {
     public class Reponse_HienThiThongTinNguoiDungDTO
     {
+        public int NguoiDungId { get; set; }
         public string TenNguoiDung { get; set; }
         public string Email { get; set; }
         public string GioiTinh { get; set; }

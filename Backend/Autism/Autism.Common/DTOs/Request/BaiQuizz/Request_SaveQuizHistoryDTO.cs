@@ -9,7 +9,8 @@ namespace Autism.Common.DTOs.Request.BaiQuizz
 {
     public class Request_SaveQuizHistoryDTO
     {
-    
+        [Required]
+        public int NguoiDungId { get; set; }
 
         [Required]
         public DateTime NgayLamQuizz { get; set; } // Ngày làm bài

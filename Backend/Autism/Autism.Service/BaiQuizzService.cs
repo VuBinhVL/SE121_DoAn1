@@ -19,7 +19,7 @@ namespace Autism.Service
     public interface IBaiQuizzService
     {
         Task<Response_BaiQuizzDTO> HienThiBaiQuizz();
-        Task<ResponseMessage> SaveQuizzHistory(Request_SaveQuizHistoryDTO request, HttpContext httpContext);
+        Task<ResponseMessage> SaveQuizzHistory(Request_SaveQuizHistoryDTO request);
         Task<Response_LichSuLamBaiDTO> GetListLichSuLamBai(HttpContext httpContext);
         Task<Response_ChiTietLamBaiQuizzDTO> GetChiTietLamBaiQuizz(int idBaiQuizz);
     }
@@ -33,16 +33,16 @@ namespace Autism.Service
         private readonly IDapAnBaiQuizzRepository _dapAnBaiQuizzRepository;
         private readonly INguoiKiemTraRepository _nguoiKiemTraRepository;
         private readonly INguoiDungRepository _nguoiDungRepository;
-        public BaiQuizzService (IBaiQuizzRepository baiQuizzRepository,ICauHoiBaiQuizzRepository cauHoiBaiQuizzRepository
-            ,IUnitOfWork unitOfWork, IChiTietBaiQuizzRepository chiTietBaiQuizzRepository, IDapAnBaiQuizzDaChonRepository dapAnBaiQuizzDaChonRepository,
-            IDapAnBaiQuizzRepository dapAnBaiQuizzRepository,INguoiKiemTraRepository nguoiKiemTraRepository,INguoiDungRepository nguoiDungRepository)
+        public BaiQuizzService(IBaiQuizzRepository baiQuizzRepository, ICauHoiBaiQuizzRepository cauHoiBaiQuizzRepository
+            , IUnitOfWork unitOfWork, IChiTietBaiQuizzRepository chiTietBaiQuizzRepository, IDapAnBaiQuizzDaChonRepository dapAnBaiQuizzDaChonRepository,
+            IDapAnBaiQuizzRepository dapAnBaiQuizzRepository, INguoiKiemTraRepository nguoiKiemTraRepository, INguoiDungRepository nguoiDungRepository)
         {
-            _baiQuizzRepository =baiQuizzRepository;
+            _baiQuizzRepository = baiQuizzRepository;
             _cauHoiBaiQuizzRepository = cauHoiBaiQuizzRepository;
             _unitOfWork = unitOfWork;
             _chiTietBaiQuizzRepository = chiTietBaiQuizzRepository;
             _dapAnBaiQuizzDaChonRepository = dapAnBaiQuizzDaChonRepository;
-            _dapAnBaiQuizzRepository = dapAnBaiQuizzRepository ;
+            _dapAnBaiQuizzRepository = dapAnBaiQuizzRepository;
             _nguoiKiemTraRepository = nguoiKiemTraRepository;
             _nguoiDungRepository = nguoiDungRepository;
         }
@@ -132,13 +132,13 @@ namespace Autism.Service
             };
 
             // Lấy danh sách bài làm từ repository
-            var baiQuizzs = await _baiQuizzRepository.FindAsync(bq=> bq.NguoiDungId == findNguoiDung.NguoiDungId);
+            var baiQuizzs = await _baiQuizzRepository.FindAsync(bq => bq.NguoiDungId == findNguoiDung.NguoiDungId);
 
             foreach (var baiQuizz in baiQuizzs)
             {
                 // Giả sử bạn có phương thức để lấy tên người kiểm tra từ ID
                 var nguoiKiemTra = await _nguoiKiemTraRepository.GetSingleByIdAsync(baiQuizz.NguoiKiemTraId);
-                var tenNguoiKiemTra = nguoiKiemTra?.HoTen ?? "Không xác định"; 
+                var tenNguoiKiemTra = nguoiKiemTra?.HoTen ?? "Không xác định";
 
                 rs.LichSuLamBai.Add(new LichSuLamBaiDTO
                 {
@@ -175,26 +175,23 @@ namespace Autism.Service
         }
 
 
-        public async Task<ResponseMessage> SaveQuizzHistory(Request_SaveQuizHistoryDTO request, HttpContext httpContext)
+        public async Task<ResponseMessage> SaveQuizzHistory(Request_SaveQuizHistoryDTO request)
         {
-            var findNguoiDung = await GetNguoiDungByHttpContext(httpContext);
-            if (findNguoiDung == null)
-            {
-                throw new Exception("Nguoi Dung ko hop le");
-            }
+        
             var baiQuizz = new BaiQuizz
             {
-                NguoiDungId = findNguoiDung.NguoiDungId,
+                NguoiDungId = request.NguoiDungId,
                 NgayLamQuizz = request.NgayLamQuizz,
                 NguoiKiemTraId = request.NguoiKiemTraId,
-                TongDiem = 0
+                TongDiem = 0 // Khởi tạo tổng điểm là 0, chúng ta sẽ cập nhật nó sau
             };
 
             await _baiQuizzRepository.AddAsync(baiQuizz);
             await _unitOfWork.CommitAsync(); // Lưu để lấy BaiQuizzId
 
-            int correctAnswersCount = 0;
+            int correctAnswersCount = 0; // Biến để đếm số câu trả lời đúng
 
+            // Lưu chi tiết bài thi
             foreach (var questionAnswer in request.ChiTietBaiQuizzs)
             {
                 var chiTietBaiQuizz = new ChiTietBaiQuizz
@@ -204,12 +201,12 @@ namespace Autism.Service
                 };
                 await _chiTietBaiQuizzRepository.AddAsync(chiTietBaiQuizz);
 
+                // Lưu đáp án đã chọn cho từng câu hỏi và đếm số câu trả lời đúng
                 foreach (var dapAnId in questionAnswer.DapAnBaiQuizzIds)
                 {
                     var dungSai = await _dapAnBaiQuizzRepository.GetDungSaiAsync(dapAnId);
                     var dapAnDaChon = new DapAnBaiQuizzDaChon
                     {
-                        BaiQuizzId = baiQuizz.BaiQuizzId, // Thêm dòng này
                         CauHoiBaiQuizzId = questionAnswer.CauHoiBaiQuizzId,
                         DapAnBaiQuizzId = dapAnId,
                         DungSai = dungSai
@@ -223,11 +220,12 @@ namespace Autism.Service
                 }
             }
 
+            // Cập nhật tổng điểm sau khi đếm số câu trả lời đúng
             baiQuizz.TongDiem = correctAnswersCount;
             _baiQuizzRepository.Update(baiQuizz);
-            await _unitOfWork.CommitAsync();
+            await _unitOfWork.CommitAsync(); // Lưu lại tổng điểm đã cập nhật
 
             return new ResponseMessage(HttpStatusCode.Ok, "Lưu lịch sử làm bài thành công");
         }
     }
-}
+    }

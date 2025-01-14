@@ -185,6 +185,7 @@ namespace Autism.Service
 
             var rs = new Reponse_HienThiThongTinNguoiDungDTO()
             {
+                NguoiDungId = nguoiDung.NguoiDungId,
                 TenNguoiDung = nguoiDung.HoTen,
                 Email = nguoiDung.Email,
                 GioiTinh = nguoiDung.GioiTinh,
