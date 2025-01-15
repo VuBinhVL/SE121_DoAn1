@@ -32,3 +32,66 @@
   justify-content: center;
   gap: 100px; /* Khoảng cách giữa các thẻ */
 }
+
+/* Responsive cho màn hình nhỏ hơn 1024px (Máy tính bảng) */
+@media (max-width: 1024px) {
+  .education-page {
+    padding: 30px 15px; /* Giảm padding */
+    margin-top: 30px; /* Giảm khoảng cách trên */
+  }
+
+  .education-page .education-header h2 {
+    font-size: 22px; /* Giảm kích thước tiêu đề */
+  }
+
+  .education-page .education-header .education-icon {
+    width: 60px; /* Giảm kích thước icon */
+  }
+
+  .education-page .education-cards {
+    gap: 50px; /* Giảm khoảng cách giữa các thẻ */
+    flex-wrap: wrap; /* Cho phép các thẻ xuống dòng nếu cần */
+  }
+}
+
+/* Responsive cho màn hình nhỏ hơn 768px (Điện thoại lớn) */
+@media (max-width: 768px) {
+  .education-page {
+    padding: 20px 10px; /* Giảm padding hơn nữa */
+    margin-top: 20px; /* Giảm khoảng cách trên */
+  }
+
+  .education-page .education-header h2 {
+    font-size: 20px; /* Giảm kích thước tiêu đề */
+  }
+
+  .education-page .education-header .education-icon {
+    width: 50px; /* Thu nhỏ icon */
+  }
+
+  .education-page .education-cards {
+    gap: 20px; /* Khoảng cách nhỏ hơn giữa các thẻ */
+    flex-direction: column; /* Chuyển thành dạng cột */
+    align-items: center; /* Căn giữa các thẻ */
+  }
+}
+
+/* Responsive cho màn hình nhỏ hơn 480px (Điện thoại nhỏ) */
+@media (max-width: 480px) {
+  .education-page {
+    padding: 15px; /* Giảm padding tối đa */
+    margin-top: 10px; /* Giảm khoảng cách trên nhỏ nhất */
+  }
+
+  .education-page .education-header h2 {
+    font-size: 18px; /* Kích thước tiêu đề nhỏ nhất */
+  }
+
+  .education-page .education-header .education-icon {
+    width: 40px; /* Icon nhỏ nhất */
+  }
+
+  .education-page .education-cards {
+    gap: 10px; /* Khoảng cách rất nhỏ giữa các thẻ */
+  }
+}

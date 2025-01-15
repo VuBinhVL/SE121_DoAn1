@@ -83,3 +83,78 @@
   border: none;
   border-top: 1px solid #ccc; /* Màu xám nhạt */
 }
+
+/* Responsive cho màn hình nhỏ hơn 1024px (Máy tính bảng) */
+@media (max-width: 1024px) {
+  .news-card {
+    flex-direction: column; /* Chuyển layout thành dọc */
+    padding: 10px; /* Giảm padding */
+    align-items: center; /* Căn giữa nội dung */
+  }
+
+  .news-card-image img {
+    width: 100%; /* Chiếm toàn bộ chiều rộng */
+    margin-bottom: 15px; /* Thêm khoảng cách dưới */
+  }
+
+  .news-card .news-card-content {
+    margin-left: 0; /* Loại bỏ khoảng cách trái */
+    text-align: center; /* Căn giữa nội dung */
+  }
+
+  .news-card .news-card-title {
+    font-size: 18px; /* Giảm kích thước tiêu đề */
+  }
+
+  .news-card .news-card-meta {
+    justify-content: center; /* Căn giữa meta data */
+  }
+}
+
+/* Responsive cho màn hình nhỏ hơn 768px (Điện thoại lớn) */
+@media (max-width: 768px) {
+  .news-card {
+    padding: 8px; /* Giảm padding thêm */
+  }
+
+  .news-card-image img {
+    width: 100%; /* Đảm bảo hình ảnh luôn vừa với thẻ */
+  }
+
+  .news-card .news-card-title {
+    font-size: 16px; /* Tiêu đề nhỏ hơn */
+  }
+
+  .news-card .news-card-meta {
+    font-size: 12px; /* Meta data nhỏ hơn */
+  }
+
+  .news-card .news-card-read-more {
+    font-size: 12px; /* Đọc thêm nhỏ hơn */
+  }
+}
+
+/* Responsive cho màn hình nhỏ hơn 480px (Điện thoại nhỏ) */
+@media (max-width: 480px) {
+  .news-card {
+    padding: 6px; /* Giảm padding nhỏ nhất */
+    border-radius: 8px; /* Giảm độ bo tròn */
+  }
+
+  .news-card-image img {
+    width: 100%; /* Hình ảnh vẫn chiếm toàn bộ chiều rộng */
+    margin-bottom: 10px; /* Khoảng cách dưới hình ảnh nhỏ hơn */
+  }
+
+  .news-card .news-card-title {
+    font-size: 14px; /* Tiêu đề nhỏ nhất */
+  }
+
+  .news-card .news-card-meta {
+    font-size: 11px; /* Meta data nhỏ hơn */
+  }
+
+  .news-card .news-card-read-more {
+    font-size: 11px; /* Đọc thêm nhỏ nhất */
+  }
+}

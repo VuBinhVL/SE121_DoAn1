@@ -11,7 +11,7 @@
   z-index: 1000;
 }
 
-.popup-content {
+.popup .popup-content {
   background-color: white;
   padding: 20px;
   border-radius: 10px;
@@ -21,14 +21,14 @@
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
 }
 
-.popup-image {
+.popup .popup-image {
   max-width: 100%;
   height: auto;
   border-radius: 5px;
   margin-bottom: 15px;
 }
 
-.next-level-button {
+.popup .next-level-button {
   background-color: #4caf50;
   color: white;
   padding: 10px 20px;
@@ -38,6 +38,40 @@
   margin-top: 10px;
 }
 
-.next-level-button:hover {
+.popup .next-level-button:hover {
   background-color: #45a049;
+}
+
+/* Responsive cho màn hình nhỏ hơn 768px */
+@media (max-width: 768px) {
+  .popup-content {
+    max-width: 90%; /* Giảm độ rộng để vừa với màn hình nhỏ */
+    padding: 15px; /* Giảm padding */
+  }
+
+  .popup-image {
+    margin-bottom: 10px; /* Giảm khoảng cách dưới hình ảnh */
+  }
+
+  .next-level-button {
+    padding: 8px 16px; /* Giảm kích thước nút */
+    font-size: 14px; /* Giảm kích thước chữ */
+  }
+}
+
+/* Responsive cho màn hình nhỏ hơn 480px */
+@media (max-width: 480px) {
+  .popup-content {
+    max-width: 95%; /* Giảm độ rộng hơn nữa */
+    padding: 10px; /* Giảm padding tối đa */
+  }
+
+  .popup-image {
+    max-width: 80%; /* Thu nhỏ hình ảnh */
+  }
+
+  .next-level-button {
+    padding: 6px 12px; /* Giảm kích thước nút hơn nữa */
+    font-size: 12px; /* Kích thước chữ nhỏ nhất */
+  }
 }

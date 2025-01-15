@@ -56,3 +56,77 @@
   border-top: 2px solid #f0e68c; /* Màu vàng nhạt */
   width: 100%;
 }
+
+/* Responsive cho màn hình nhỏ hơn 1024px (Máy tính bảng) */
+@media (max-width: 1024px) {
+  .question-page {
+    padding: 30px 15px; /* Giảm padding */
+    margin-top: 30px; /* Giảm khoảng cách trên */
+  }
+
+  .question-page .question-header h2 {
+    font-size: 22px; /* Giảm kích thước tiêu đề */
+  }
+
+  .question-page .question-header .question-icon {
+    width: 60px; /* Giảm kích thước icon */
+  }
+
+  .question-page .question-line {
+    gap: 8px; /* Giảm khoảng cách giữa icon và tiêu đề */
+  }
+
+  .question-page .question-line-title {
+    font-size: 22px; /* Giảm kích thước chữ tiêu đề */
+  }
+}
+
+/* Responsive cho màn hình nhỏ hơn 768px (Điện thoại lớn) */
+@media (max-width: 768px) {
+  .question-page {
+    padding: 20px 10px; /* Giảm padding thêm */
+    margin-top: 20px; /* Giảm khoảng cách trên */
+  }
+
+  .question-page .question-header h2 {
+    font-size: 20px; /* Giảm kích thước tiêu đề */
+  }
+
+  .question-page .question-header .question-icon {
+    width: 50px; /* Thu nhỏ icon hơn nữa */
+  }
+
+  .question-page .question-line-title {
+    font-size: 20px; /* Giảm kích thước chữ tiêu đề */
+  }
+
+  .question-page .question-line-icon {
+    width: 30px; /* Thu nhỏ biểu tượng */
+    height: 30px;
+  }
+}
+
+/* Responsive cho màn hình nhỏ hơn 480px (Điện thoại nhỏ) */
+@media (max-width: 480px) {
+  .question-page {
+    padding: 15px; /* Giảm padding tối đa */
+    margin-top: 10px; /* Giảm khoảng cách trên nhỏ nhất */
+  }
+
+  .question-page .question-header h2 {
+    font-size: 18px; /* Tiêu đề nhỏ nhất */
+  }
+
+  .question-page .question-header .question-icon {
+    width: 40px; /* Icon nhỏ nhất */
+  }
+
+  .question-page .question-line-title {
+    font-size: 18px; /* Kích thước chữ nhỏ nhất */
+  }
+
+  .question-page .question-line-icon {
+    width: 25px; /* Biểu tượng nhỏ hơn nữa */
+    height: 25px;
+  }
+}

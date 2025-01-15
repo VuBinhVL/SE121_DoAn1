@@ -4,3 +4,25 @@
   object-fit: cover; /* Đảm bảo ảnh che phủ toàn bộ vùng mà không bị biến dạng */
   object-position: center; /* Căn giữa ảnh trong vùng hiển thị */
 }
+
+/* Responsive styles */
+@media (max-width: 1200px) {
+  .image-history-container .history-image {
+    width: 120px; /* Giảm kích thước chiều rộng ảnh */
+    height: 120px; /* Giảm kích thước chiều cao ảnh */
+  }
+}
+
+@media (max-width: 768px) {
+  .image-history-container .history-image {
+    width: 100px; /* Tiếp tục giảm kích thước chiều rộng ảnh */
+    height: 100px; /* Tiếp tục giảm kích thước chiều cao ảnh */
+  }
+}
+
+@media (max-width: 480px) {
+  .image-history-container .history-image {
+    width: 80px; /* Giảm tối đa kích thước chiều rộng ảnh */
+    height: 80px; /* Giảm tối đa kích thước chiều cao ảnh */
+  }
+}

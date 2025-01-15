@@ -47,3 +47,76 @@
 .view-details-button:hover {
   background-color: #218838;
 }
+/* Responsive styles */
+@media (max-width: 1200px) {
+  .quiz-history-container {
+    padding: 15px; /* Giảm padding tổng thể */
+  }
+
+  .quiz-history-container h1 {
+    font-size: 22px; /* Giảm kích thước tiêu đề */
+  }
+
+  .quiz-history-table th,
+  .quiz-history-table td {
+    padding: 10px; /* Giảm padding trong bảng */
+    font-size: 14px; /* Giảm kích thước chữ */
+  }
+
+  .view-details-button {
+    font-size: 13px; /* Giảm kích thước nút */
+    padding: 6px 10px; /* Giảm kích thước padding của nút */
+  }
+}
+
+@media (max-width: 768px) {
+  .quiz-history-container {
+    padding: 10px; /* Giảm thêm padding tổng thể */
+  }
+
+  .quiz-history-container h1 {
+    font-size: 20px; /* Tiêu đề nhỏ hơn */
+  }
+
+  .quiz-history-table th,
+  .quiz-history-table td {
+    padding: 8px; /* Giảm thêm padding trong bảng */
+    font-size: 13px; /* Chữ nhỏ hơn */
+  }
+
+  .quiz-history-table {
+    font-size: 12px; /* Toàn bộ bảng nhỏ hơn */
+  }
+
+  .view-details-button {
+    font-size: 12px; /* Nút nhỏ hơn */
+    padding: 5px 8px; /* Giảm thêm padding của nút */
+  }
+}
+
+@media (max-width: 480px) {
+  .quiz-history-container {
+    padding: 8px; /* Giảm tối đa padding */
+  }
+
+  .quiz-history-container h1 {
+    font-size: 18px; /* Kích thước tiêu đề nhỏ nhất */
+  }
+
+  .quiz-history-table th,
+  .quiz-history-table td {
+    padding: 6px; /* Giảm padding nhỏ nhất trong bảng */
+    font-size: 12px; /* Chữ nhỏ nhất trong bảng */
+  }
+
+  .view-details-button {
+    font-size: 11px; /* Kích thước chữ của nút nhỏ nhất */
+    padding: 4px 6px; /* Giảm padding của nút nhỏ nhất */
+  }
+
+  .quiz-history-table {
+    display: block; /* Hiển thị bảng theo dạng cuộn */
+    overflow-x: auto; /* Thêm thanh cuộn ngang */
+    white-space: nowrap; /* Ngăn xuống dòng trong bảng */
+  }
+}

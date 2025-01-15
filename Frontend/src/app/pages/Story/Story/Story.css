@@ -30,3 +30,66 @@
 .story-page .story-list {
   margin-top: 45px;
 }
+
+/* Responsive styles */
+@media (max-width: 1200px) {
+  .story-page {
+    padding: 30px 15px; /* Giảm padding tổng thể */
+  }
+
+  .story-page .story-header h2 {
+    font-size: 22px; /* Giảm kích thước tiêu đề */
+  }
+
+  .story-page .story-header .story-icon {
+    width: 50px; /* Giảm kích thước icon */
+  }
+
+  .story-page .story-list {
+    margin-top: 30px; /* Giảm khoảng cách giữa danh sách */
+  }
+}
+
+@media (max-width: 768px) {
+  .story-page {
+    padding: 20px 10px; /* Giảm thêm padding tổng thể */
+  }
+
+  .story-page .story-header {
+    flex-direction: column; /* Chuyển sang bố cục dọc */
+    align-items: center; /* Căn giữa các phần tử */
+    gap: 10px; /* Thêm khoảng cách giữa icon và tiêu đề */
+  }
+
+  .story-page .story-header h2 {
+    font-size: 20px; /* Tiêu đề nhỏ hơn */
+    margin-top: 10px; /* Giảm khoảng cách trên */
+  }
+
+  .story-page .story-header .story-icon {
+    width: 40px; /* Giảm kích thước icon thêm */
+  }
+
+  .story-page .story-list {
+    margin-top: 20px; /* Giảm khoảng cách giữa danh sách */
+  }
+}
+
+@media (max-width: 480px) {
+  .story-page {
+    padding: 15px 5px; /* Giảm tối đa padding */
+  }
+
+  .story-page .story-header h2 {
+    font-size: 18px; /* Kích thước tiêu đề nhỏ hơn */
+    margin-top: 5px; /* Giảm khoảng cách trên thêm */
+  }
+
+  .story-page .story-header .story-icon {
+    width: 30px; /* Kích thước nhỏ nhất của icon */
+  }
+
+  .story-page .story-list {
+    margin-top: 15px; /* Giảm khoảng cách tối đa */
+  }
+}

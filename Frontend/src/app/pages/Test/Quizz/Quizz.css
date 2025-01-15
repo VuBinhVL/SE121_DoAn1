@@ -95,3 +95,90 @@
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
+
+/* Responsive styles */
+@media (max-width: 1200px) {
+  .quiz-container {
+    padding: 15px; /* Giảm padding container */
+  }
+
+  .quiz-container h1 {
+    font-size: 22px; /* Giảm kích thước tiêu đề */
+  }
+
+  .quiz-container .question-item {
+    padding: 10px; /* Giảm padding từng câu hỏi */
+  }
+
+  .quiz-container .radio-group {
+    gap: 10px; /* Giảm khoảng cách giữa các tùy chọn */
+  }
+
+  .quiz-container button {
+    font-size: 13px; /* Giảm kích thước chữ nút */
+    padding: 8px 16px; /* Giảm kích thước nút */
+  }
+
+  .quiz-container .submit-button {
+    width: 60%; /* Tăng chiều rộng nút trên màn hình lớn hơn */
+  }
+}
+
+@media (max-width: 768px) {
+  .quiz-container {
+    padding: 10px; /* Thêm khoảng cách nhỏ hơn */
+  }
+
+  .quiz-container h1 {
+    font-size: 20px; /* Tiêu đề nhỏ hơn */
+  }
+
+  .quiz-container .question-item {
+    padding: 8px; /* Giảm padding trong câu hỏi */
+  }
+
+  .quiz-container .radio-group {
+    flex-direction: column; /* Căn chỉnh dọc các tùy chọn */
+    gap: 8px; /* Giảm khoảng cách tùy chọn thêm */
+  }
+
+  .quiz-container button {
+    font-size: 12px; /* Kích thước nút nhỏ hơn */
+    padding: 6px 12px; /* Giảm padding nút */
+  }
+
+  .quiz-container .submit-button {
+    width: 70%; /* Giảm chiều rộng nút */
+    font-size: 14px; /* Giảm kích thước chữ */
+  }
+}
+
+@media (max-width: 480px) {
+  .quiz-container {
+    padding: 5px; /* Giảm padding tối đa */
+  }
+
+  .quiz-container h1 {
+    font-size: 18px; /* Kích thước tiêu đề nhỏ nhất */
+  }
+
+  .quiz-container .question-item {
+    padding: 5px; /* Giảm padding câu hỏi tối đa */
+    font-size: 14px; /* Giảm kích thước chữ */
+  }
+
+  .quiz-container .radio-group {
+    gap: 5px; /* Giảm thêm khoảng cách tùy chọn */
+  }
+
+  .quiz-container button {
+    font-size: 11px; /* Giảm kích thước chữ của nút */
+    padding: 5px 10px; /* Giảm kích thước nút nhỏ nhất */
+  }
+
+  .quiz-container .submit-button {
+    width: 80%; /* Đầy chiều ngang khung trên màn hình nhỏ */
+    font-size: 12px; /* Kích thước chữ nhỏ hơn */
+    padding: 8px; /* Giảm padding nút */
+  }
+}

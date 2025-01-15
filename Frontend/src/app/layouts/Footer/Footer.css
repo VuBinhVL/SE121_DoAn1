@@ -108,3 +108,90 @@
   margin: 10px 0; /* Khoảng cách trên và dưới */
   border: none;
 }
+
+/* Responsive cho màn hình nhỏ hơn 1024px (Máy tính bảng) */
+@media (max-width: 1024px) {
+  .footer {
+    flex-direction: column; /* Chuyển layout sang dạng cột */
+    align-items: center; /* Căn giữa nội dung */
+    padding: 20px; /* Giảm padding */
+  }
+
+  .footer .footer-content {
+    flex-direction: column; /* Chuyển tất cả nội dung sang dạng cột */
+    align-items: center;
+  }
+
+  .footer .footer-logo {
+    margin-bottom: 20px; /* Thêm khoảng cách dưới logo */
+  }
+
+  .footer .footer-menu {
+    margin-left: 0; /* Loại bỏ margin */
+    text-align: center; /* Căn giữa nội dung menu */
+  }
+
+  .footer .footer-contacts {
+    text-align: center; /* Căn giữa nội dung liên hệ */
+  }
+}
+
+/* Responsive cho màn hình nhỏ hơn 768px (Điện thoại lớn) */
+@media (max-width: 768px) {
+  .footer {
+    padding: 15px; /* Giảm padding */
+  }
+
+  .footer .footer-logo p {
+    font-size: 16px; /* Giảm kích thước chữ logo */
+  }
+
+  .footer .footer-menu h4,
+  .footer .footer-contacts h4 {
+    font-size: 14px; /* Giảm kích thước tiêu đề */
+  }
+
+  .footer .footer-menu ul,
+  .footer .footer-contacts ul {
+    text-align: center; /* Căn giữa danh sách menu và liên hệ */
+  }
+
+  .footer .nav-link {
+    font-size: 13px; /* Giảm kích thước chữ link */
+  }
+
+  .footer .footer-contacts ul li {
+    font-size: 13px; /* Giảm kích thước chữ liên hệ */
+  }
+}
+
+/* Responsive cho màn hình nhỏ hơn 480px (Điện thoại nhỏ) */
+@media (max-width: 480px) {
+  .footer {
+    padding: 10px; /* Giảm padding nhỏ nhất */
+  }
+
+  .footer .footer-logo img {
+    width: 30px; /* Thu nhỏ logo */
+    height: 30px;
+  }
+
+  .footer .footer-logo p {
+    font-size: 14px; /* Giảm kích thước chữ logo */
+  }
+
+  .footer .footer-menu h4,
+  .footer .footer-contacts h4 {
+    font-size: 12px; /* Giảm kích thước tiêu đề */
+  }
+
+  .footer .footer-menu ul li,
+  .footer .footer-contacts ul li {
+    font-size: 12px; /* Giảm kích thước chữ menu và liên hệ */
+  }
+
+  .footer .contact-icon {
+    width: 12px; /* Thu nhỏ icon liên hệ */
+    height: 12px;
+  }
+}

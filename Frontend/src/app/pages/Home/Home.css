@@ -266,3 +266,97 @@
   padding: 80px 20px;
   background-color: #ffffff; /* Màu nền trắng */
 }
+
+/* Responsive styles */
+@media (max-width: 1200px) {
+  .home {
+    padding: 10px; /* Giảm padding tổng thể */
+  }
+
+  .home .home-introduction h1 {
+    font-size: 22px; /* Giảm kích thước tiêu đề */
+  }
+
+  .home .education-cards,
+  .home .test-body,
+  .home .story-body,
+  .home .game-body {
+    flex-direction: column; /* Chuyển từ ngang sang dọc */
+    align-items: center; /* Canh giữa các phần tử */
+    gap: 20px; /* Thêm khoảng cách giữa các mục */
+  }
+
+  .home .education-header h2,
+  .home .test-header h2,
+  .home .story-header h2,
+  .home .game-header h2 {
+    font-size: 22px; /* Giảm kích thước tiêu đề */
+  }
+
+  .home .test-content,
+  .home .story-content,
+  .home .game-content {
+    text-align: center; /* Canh giữa văn bản */
+    padding: 0; /* Loại bỏ khoảng cách thừa */
+  }
+
+  .home .story-img,
+  .home .game-img {
+    max-width: 300px; /* Giảm kích thước hình ảnh */
+  }
+}
+
+@media (max-width: 768px) {
+  .home {
+    padding: 5px; /* Giảm thêm padding tổng thể */
+  }
+
+  .home .home-introduction h1 {
+    font-size: 20px;
+  }
+
+  .home .education-header .education-icon,
+  .home .test-icon,
+  .home .story-icon,
+  .home .game-icon {
+    width: 40px; /* Giảm kích thước icon */
+  }
+
+  .home .test-content p,
+  .home .story-content p,
+  .home .game-content p {
+    font-size: 14px; /* Giảm kích thước font chữ */
+  }
+
+  .home .story-img,
+  .home .game-img {
+    max-width: 250px; /* Giảm kích thước hình ảnh thêm */
+  }
+}
+
+@media (max-width: 480px) {
+  .home {
+    padding: 0; /* Loại bỏ padding không cần thiết */
+  }
+
+  .home .home-introduction h1 {
+    font-size: 18px; /* Kích thước nhỏ hơn cho tiêu đề */
+  }
+
+  .home .education-header h2,
+  .home .test-header h2,
+  .home .story-header h2,
+  .home .game-header h2 {
+    font-size: 18px; /* Giảm kích thước tiêu đề thêm */
+  }
+
+  .home .story-img,
+  .home .game-img {
+    max-width: 200px; /* Giảm tối đa kích thước hình ảnh */
+  }
+
+  .home .game-content p,
+  .home .story-content p {
+    font-size: 12px; /* Giảm kích thước chữ cho nội dung */
+  }
+}

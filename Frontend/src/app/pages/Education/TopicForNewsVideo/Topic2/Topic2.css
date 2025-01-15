@@ -50,3 +50,63 @@
 .topic2-autism .symptoms-section ul li {
   margin-bottom: 10px;
 }
+
+/* Responsive styles */
+@media (max-width: 1200px) {
+  .topic2-autism .symptoms-autism {
+    padding: 15px;
+  }
+
+  .topic2-autism .symptoms-images {
+    gap: 15px; /* Giảm khoảng cách giữa các hình ảnh */
+    margin-bottom: 25px;
+  }
+
+  .topic2-autism .symptoms-images img {
+    height: 250px; /* Giảm chiều cao hình ảnh */
+  }
+}
+
+@media (max-width: 768px) {
+  .topic2-autism .symptoms-autism {
+    padding: 10px;
+  }
+
+  .topic2-autism .symptoms-images {
+    flex-direction: column; /* Xếp hình ảnh theo cột */
+    align-items: center; /* Căn giữa các hình ảnh theo cột */
+    gap: 10px;
+  }
+
+  .topic2-autism .symptoms-images img {
+    height: 200px; /* Giảm chiều cao hình ảnh */
+  }
+
+  .topic2-autism .symptoms-section h1 {
+    font-size: 1.8em; /* Giảm kích thước tiêu đề */
+  }
+
+  .topic2-autism .symptoms-section p,
+  .topic2-autism .symptoms-section ul li {
+    font-size: 1em; /* Giảm kích thước văn bản */
+  }
+}
+
+@media (max-width: 480px) {
+  .topic2-autism .symptoms-autism {
+    padding: 5px;
+  }
+
+  .topic2-autism .symptoms-images img {
+    height: 150px; /* Tiếp tục giảm chiều cao hình ảnh */
+  }
+
+  .topic2-autism .symptoms-section h1 {
+    font-size: 1.5em; /* Giảm thêm kích thước tiêu đề */
+  }
+
+  .topic2-autism .symptoms-section p,
+  .topic2-autism .symptoms-section ul li {
+    font-size: 0.9em; /* Giảm thêm kích thước văn bản */
+  }
+}

@@ -33,3 +33,53 @@
   background-color: #b0e0e6;
   color: #348f6c;
 }
+
+/* Responsive styles */
+@media (max-width: 1200px) {
+  .page-not-found h1 {
+    font-size: 8em; /* Giảm kích thước tiêu đề lớn */
+  }
+
+  .page-not-found p {
+    font-size: 1.2em; /* Giảm kích thước chữ mô tả */
+  }
+
+  .page-not-found a {
+    font-size: 1em; /* Giảm kích thước chữ trong link */
+    padding: 8px 16px; /* Giảm padding của link */
+  }
+}
+
+@media (max-width: 768px) {
+  .page-not-found h1 {
+    font-size: 6em; /* Giảm kích thước tiêu đề hơn nữa */
+  }
+
+  .page-not-found p {
+    font-size: 1em; /* Chữ mô tả nhỏ hơn */
+  }
+
+  .page-not-found a {
+    font-size: 0.9em; /* Link nhỏ hơn */
+    padding: 6px 12px; /* Giảm thêm padding của link */
+  }
+}
+
+@media (max-width: 480px) {
+  .page-not-found {
+    padding: 10px; /* Thêm khoảng cách xung quanh container */
+  }
+
+  .page-not-found h1 {
+    font-size: 4em; /* Tiêu đề nhỏ nhất trên màn hình nhỏ */
+  }
+
+  .page-not-found p {
+    font-size: 0.9em; /* Chữ mô tả nhỏ nhất */
+  }
+
+  .page-not-found a {
+    font-size: 0.8em; /* Kích thước chữ trong link nhỏ nhất */
+    padding: 5px 10px; /* Giảm padding tối đa của link */
+  }
+}

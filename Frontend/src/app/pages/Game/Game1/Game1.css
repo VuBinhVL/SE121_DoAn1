@@ -67,3 +67,79 @@
   font-size: 14px; /* Giảm kích thước mô tả */
   color: #333;
 }
+
+/* Responsive styles */
+@media (max-width: 1200px) {
+  .game-container {
+    padding: 15px;
+  }
+
+  .game-container .question-image {
+    width: 350px;
+    height: 220px; /* Giảm kích thước hình ảnh câu hỏi */
+  }
+
+  .game-container .playcards {
+    grid-template-columns: repeat(3, 1fr); /* Chuyển mỗi hàng 3 thẻ */
+    gap: 15px; /* Tăng khoảng cách giữa các thẻ */
+  }
+
+  .game-container .playcard {
+    width: 200px; /* Giảm chiều rộng thẻ đáp án */
+    height: 80px;
+  }
+
+  .game-container .description {
+    font-size: 13px; /* Giảm kích thước mô tả */
+  }
+}
+
+@media (max-width: 768px) {
+  .game-container {
+    padding: 10px;
+  }
+
+  .game-container .question-image {
+    width: 300px;
+    height: 200px;
+  }
+
+  .game-container .playcards {
+    grid-template-columns: repeat(2, 1fr); /* Chuyển mỗi hàng 2 thẻ */
+    gap: 10px;
+  }
+
+  .game-container .playcard {
+    width: 180px;
+    height: 70px;
+  }
+
+  .game-container .description {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .game-container {
+    padding: 5px;
+  }
+
+  .game-container .question-image {
+    width: 100%; /* Hình ảnh chiếm toàn bộ chiều rộng khung */
+    height: auto; /* Tự động điều chỉnh chiều cao */
+  }
+
+  .game-container .playcards {
+    grid-template-columns: 1fr; /* Mỗi hàng chỉ 1 thẻ */
+    gap: 5px;
+  }
+
+  .game-container .playcard {
+    width: 100%; /* Chiếm toàn bộ chiều rộng khung chứa */
+    height: 60px;
+  }
+
+  .game-container .description {
+    font-size: 11px;
+  }
+}

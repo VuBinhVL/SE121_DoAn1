@@ -81,3 +81,80 @@
 .quiz-details-overlay .close-button:hover {
   background-color: #4bbfce;
 }
+
+/* Responsive styles */
+@media (max-width: 1200px) {
+  .quiz-details-overlay .quiz-details-container {
+    width: 90%; /* Mở rộng chiều rộng để phù hợp hơn */
+    max-height: 400px; /* Giảm chiều cao tối đa */
+    padding: 15px; /* Giảm padding container */
+  }
+
+  .quiz-details-overlay .quiz-details-container h3 {
+    font-size: 18px; /* Giảm kích thước tiêu đề */
+  }
+
+  .quiz-details-overlay .quiz-info p {
+    font-size: 14px; /* Giảm kích thước chữ trong thông tin */
+  }
+
+  .quiz-details-overlay .answer {
+    font-size: 13px; /* Giảm kích thước chữ trong đáp án */
+  }
+
+  .quiz-details-overlay .close-button {
+    font-size: 14px; /* Giảm kích thước nút đóng */
+    padding: 8px 16px; /* Giảm padding của nút */
+  }
+}
+
+@media (max-width: 768px) {
+  .quiz-details-overlay .quiz-details-container {
+    max-width: 90%; /* Chiều rộng container lớn hơn màn hình nhỏ */
+    max-height: 350px; /* Giảm chiều cao tối đa */
+    padding: 10px; /* Giảm thêm padding */
+  }
+
+  .quiz-details-overlay .quiz-details-container h3 {
+    font-size: 16px; /* Tiêu đề nhỏ hơn */
+    margin-bottom: 15px; /* Giảm khoảng cách dưới tiêu đề */
+  }
+
+  .quiz-details-overlay .quiz-info p {
+    font-size: 13px; /* Chữ nhỏ hơn */
+  }
+
+  .quiz-details-overlay .answer {
+    font-size: 12px; /* Chữ đáp án nhỏ hơn */
+  }
+
+  .quiz-details-overlay .close-button {
+    font-size: 12px; /* Nút đóng nhỏ hơn */
+    padding: 6px 12px; /* Giảm padding thêm */
+  }
+}
+
+@media (max-width: 480px) {
+  .quiz-details-overlay .quiz-details-container {
+    width: 95%; /* Chiều rộng container gần như toàn màn hình */
+    max-height: 300px; /* Giảm chiều cao tối đa */
+    padding: 8px; /* Giảm padding nhỏ nhất */
+  }
+
+  .quiz-details-overlay .quiz-details-container h3 {
+    font-size: 14px; /* Kích thước tiêu đề nhỏ nhất */
+  }
+
+  .quiz-details-overlay .quiz-info p {
+    font-size: 12px; /* Chữ trong thông tin nhỏ hơn */
+  }
+
+  .quiz-details-overlay .answer {
+    font-size: 11px; /* Chữ đáp án nhỏ hơn */
+  }
+
+  .quiz-details-overlay .close-button {
+    font-size: 11px; /* Nút đóng nhỏ nhất */
+    padding: 5px 10px; /* Giảm padding nhỏ nhất */
+  }
+}

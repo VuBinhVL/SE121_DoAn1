@@ -22,3 +22,24 @@
   background-color: #b3754e; /* Màu khi nhấn */
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2); /* Giảm đổ bóng khi nhấn */
 }
+
+/* Responsive cho màn hình nhỏ hơn 768px */
+@media (max-width: 768px) {
+  .custom-button {
+    font-size: 14px; /* Giảm kích thước chữ */
+    padding: 8px 16px; /* Giảm khoảng cách trong nút */
+    width: 110px; /* Giảm chiều rộng nút */
+    margin-top: 40px; /* Giảm khoảng cách phía trên */
+  }
+}
+
+/* Responsive cho màn hình nhỏ hơn 480px */
+@media (max-width: 480px) {
+  .custom-button {
+    font-size: 12px; /* Kích thước chữ nhỏ hơn */
+    padding: 6px 12px; /* Giảm padding thêm */
+    width: 100px; /* Giảm chiều rộng nút hơn nữa */
+    margin-top: 30px; /* Giảm khoảng cách phía trên */
+    border-radius: 15px; /* Giảm bo tròn để phù hợp */
+  }
+}

@@ -56,3 +56,70 @@
 .topic3-autism .causes-content ul li strong {
   color: #333; /* Màu đậm cho tiêu đề từng mục */
 }
+/* Responsive styles */
+@media (max-width: 1200px) {
+  .topic3-autism {
+    padding: 15px;
+  }
+
+  .topic3-autism .causes-images {
+    gap: 15px; /* Giảm khoảng cách giữa các hình ảnh */
+    margin-bottom: 25px;
+  }
+
+  .topic3-autism .causes-images img {
+    height: 220px; /* Giảm chiều cao hình ảnh */
+  }
+}
+
+@media (max-width: 768px) {
+  .topic3-autism {
+    padding: 10px;
+  }
+
+  .topic3-autism h1 {
+    font-size: 1.8em; /* Giảm kích thước tiêu đề */
+  }
+
+  .topic3-autism .causes-images {
+    flex-direction: column; /* Xếp hình ảnh theo cột */
+    align-items: center; /* Căn giữa các hình ảnh theo cột */
+    gap: 10px;
+  }
+
+  .topic3-autism .causes-images img {
+    height: 180px; /* Tiếp tục giảm chiều cao hình ảnh */
+  }
+
+  .topic3-autism .causes-content p,
+  .topic3-autism .causes-content ul li {
+    font-size: 1em; /* Giảm kích thước văn bản */
+  }
+}
+
+@media (max-width: 480px) {
+  .topic3-autism {
+    padding: 5px;
+  }
+
+  .topic3-autism h1 {
+    font-size: 1.5em; /* Giảm thêm kích thước tiêu đề */
+  }
+
+  .topic3-autism .causes-images img {
+    height: 150px; /* Giảm chiều cao hình ảnh */
+  }
+
+  .topic3-autism .causes-content p,
+  .topic3-autism .causes-content ul li {
+    font-size: 0.9em; /* Tiếp tục giảm kích thước văn bản */
+  }
+
+  .topic3-autism .causes-content ul li {
+    padding-left: 15px; /* Giảm khoảng cách thụt đầu dòng */
+  }
+
+  .topic3-autism .causes-content ul li::before {
+    left: 5px; /* Điều chỉnh vị trí ký hiệu */
+  }
+}

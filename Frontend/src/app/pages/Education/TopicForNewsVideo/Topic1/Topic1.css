@@ -25,3 +25,64 @@
   color: #333;
   margin-left: 10px;
 }
+
+/* Responsive styles */
+@media (max-width: 1200px) {
+  .topic1-autism {
+    padding: 15px;
+  }
+
+  .topic1-autism .autism-content p,
+  .topic1-autism .autism-content ul,
+  .topic1-autism .autism-content ol {
+    margin-left: 5px;
+  }
+
+  .topic1-autism .autism-content ul li {
+    margin-left: 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  .topic1-autism {
+    padding: 10px;
+  }
+
+  .topic1-autism .autism-video {
+    margin-bottom: 15px;
+  }
+
+  .topic1-autism .autism-content h2 {
+    font-size: 1.5em;
+    margin-left: 5px;
+  }
+
+  .topic1-autism .autism-content p,
+  .topic1-autism .autism-content ul,
+  .topic1-autism .autism-content ol {
+    font-size: 1em;
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .topic1-autism {
+    padding: 5px;
+  }
+
+  .topic1-autism .autism-video {
+    margin-bottom: 10px;
+  }
+
+  .topic1-autism .autism-content h2 {
+    font-size: 1.2em;
+    margin-left: 0;
+  }
+
+  .topic1-autism .autism-content p,
+  .topic1-autism .autism-content ul,
+  .topic1-autism .autism-content ol {
+    font-size: 0.9em;
+    margin-left: 0;
+  }
+}

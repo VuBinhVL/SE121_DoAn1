@@ -112,3 +112,93 @@
 .game2-container .confirm-button:hover {
   background-color: #45a049;
 }
+
+/* Responsive styles */
+@media (max-width: 1200px) {
+  .game2-container {
+    padding: 15px;
+  }
+
+  .game2-container .puzzle-and-reference {
+    flex-direction: column; /* Sắp xếp theo chiều dọc */
+    align-items: center; /* Căn giữa các khu vực */
+    gap: 15px;
+  }
+
+  .game2-container .puzzle-grid {
+    width: 250px;
+    height: 250px; /* Giảm kích thước lưới */
+  }
+
+  .game2-container .reference-image {
+    height: 150px; /* Giảm chiều cao ảnh mẫu */
+  }
+
+  .game2-container .shuffled-piece {
+    width: 80px;
+    height: 80px; /* Giảm kích thước mảnh ghép */
+  }
+
+  .game2-container .confirm-button {
+    font-size: 14px; /* Giảm kích thước nút */
+    padding: 8px 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  .game2-container {
+    padding: 10px;
+  }
+
+  .game2-container .puzzle-grid {
+    width: 200px;
+    height: 200px;
+  }
+
+  .game2-container .shuffled-piece {
+    width: 70px;
+    height: 70px;
+  }
+
+  .game2-container .reference-image {
+    height: 130px;
+  }
+
+  .game2-container .confirm-button {
+    font-size: 12px;
+    padding: 6px 12px;
+  }
+
+  .game2-container .feedback {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .game2-container {
+    padding: 5px;
+  }
+
+  .game2-container .puzzle-grid {
+    width: 150px;
+    height: 150px;
+  }
+
+  .game2-container .shuffled-piece {
+    width: 50px;
+    height: 50px;
+  }
+
+  .game2-container .reference-image {
+    height: 100px;
+  }
+
+  .game2-container .confirm-button {
+    font-size: 10px;
+    padding: 5px 10px;
+  }
+
+  .game2-container .feedback {
+    font-size: 12px;
+  }
+}

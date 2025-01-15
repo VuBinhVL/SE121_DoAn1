@@ -108,3 +108,100 @@
   background-color: #f2f2f2;
   font-weight: bold;
 }
+
+/* Responsive styles */
+@media (max-width: 1200px) {
+  .test-image-container {
+    padding: 15px; /* Giảm padding container */
+    max-width: 500px; /* Giảm chiều rộng tối đa */
+  }
+
+  .test-image-container h1 {
+    font-size: 22px; /* Giảm kích thước tiêu đề */
+  }
+
+  .test-image-container input[type="file"] {
+    font-size: 14px; /* Giảm kích thước font trong input */
+    padding: 8px; /* Giảm padding input */
+  }
+
+  .test-image-container button {
+    font-size: 14px; /* Giảm kích thước nút */
+    padding: 8px 16px; /* Giảm padding của nút */
+  }
+
+  .test-image-container .probability-table th,
+  .test-image-container .probability-table td,
+  .test-image-container .metrics-table th,
+  .test-image-container .metrics-table td {
+    font-size: 14px; /* Giảm kích thước chữ trong bảng */
+    padding: 6px; /* Giảm padding trong bảng */
+  }
+}
+
+@media (max-width: 768px) {
+  .test-image-container {
+    padding: 10px; /* Giảm thêm padding */
+    max-width: 400px; /* Giảm chiều rộng tối đa thêm */
+  }
+
+  .test-image-container h1 {
+    font-size: 20px; /* Tiêu đề nhỏ hơn */
+  }
+
+  .test-image-container input[type="file"] {
+    font-size: 12px; /* Chữ nhỏ hơn trong input */
+    padding: 6px; /* Giảm thêm padding input */
+  }
+
+  .test-image-container button {
+    font-size: 12px; /* Nút nhỏ hơn */
+    padding: 6px 12px; /* Giảm thêm padding nút */
+  }
+
+  .test-image-container .image-preview img {
+    max-width: 90%; /* Giới hạn chiều rộng hình ảnh */
+  }
+
+  .test-image-container .probability-table th,
+  .test-image-container .probability-table td,
+  .test-image-container .metrics-table th,
+  .test-image-container .metrics-table td {
+    font-size: 12px; /* Kích thước chữ nhỏ hơn */
+    padding: 5px; /* Giảm padding trong bảng thêm */
+  }
+}
+
+@media (max-width: 480px) {
+  .test-image-container {
+    padding: 8px; /* Giảm padding tối đa */
+    max-width: 90%; /* Chiều rộng container gần như toàn màn hình */
+  }
+
+  .test-image-container h1 {
+    font-size: 18px; /* Kích thước tiêu đề nhỏ nhất */
+  }
+
+  .test-image-container input[type="file"] {
+    font-size: 11px; /* Chữ nhỏ nhất trong input */
+    padding: 5px; /* Giảm padding nhỏ nhất */
+  }
+
+  .test-image-container button {
+    font-size: 11px; /* Nút nhỏ nhất */
+    padding: 5px 10px; /* Giảm padding nhỏ nhất */
+  }
+
+  .test-image-container .image-preview img {
+    max-width: 100%; /* Hình ảnh chiếm toàn bộ chiều rộng container */
+    height: auto; /* Giữ tỉ lệ hình ảnh */
+  }
+
+  .test-image-container .probability-table th,
+  .test-image-container .probability-table td,
+  .test-image-container .metrics-table th,
+  .test-image-container .metrics-table td {
+    font-size: 11px; /* Chữ nhỏ nhất trong bảng */
+    padding: 4px; /* Giảm padding nhỏ nhất */
+  }
+}

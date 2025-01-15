@@ -68,3 +68,77 @@
   border-radius: 10px; /* Bo góc hình ảnh */
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Đổ bóng hình ảnh */
 }
+/* Responsive styles */
+@media (max-width: 1200px) {
+  .topic4-autism .detecting-autism {
+    padding: 15px;
+  }
+
+  .topic4-autism .autism-images {
+    gap: 15px; /* Giảm khoảng cách giữa các hình ảnh */
+    margin-bottom: 25px;
+  }
+
+  .topic4-autism .autism-images img {
+    width: 350px; /* Giảm kích thước chiều rộng hình ảnh */
+  }
+}
+
+@media (max-width: 768px) {
+  .topic4-autism .detecting-autism {
+    padding: 10px;
+  }
+
+  .topic4-autism .autism-video {
+    margin-bottom: 15px;
+  }
+
+  .topic4-autism .autism-content h2,
+  .topic4-autism .autism-content h3 {
+    font-size: 1.5em; /* Giảm kích thước tiêu đề */
+  }
+
+  .topic4-autism .autism-images {
+    flex-direction: column; /* Xếp hình ảnh theo cột */
+    align-items: center; /* Căn giữa các hình ảnh theo cột */
+    gap: 10px;
+  }
+
+  .topic4-autism .autism-images img {
+    width: 250px; /* Tiếp tục giảm kích thước hình ảnh */
+  }
+
+  .topic4-autism .autism-content p,
+  .topic4-autism .autism-content ul li {
+    font-size: 1em; /* Giảm kích thước văn bản */
+  }
+}
+
+@media (max-width: 480px) {
+  .topic4-autism .detecting-autism {
+    padding: 5px;
+  }
+
+  .topic4-autism .autism-content h2,
+  .topic4-autism .autism-content h3 {
+    font-size: 1.2em; /* Giảm thêm kích thước tiêu đề */
+  }
+
+  .topic4-autism .autism-images img {
+    width: 100%; /* Hình ảnh chiếm toàn bộ chiều rộng khung */
+    height: auto; /* Tự động điều chỉnh chiều cao */
+  }
+
+  .topic4-autism .autism-content p,
+  .topic4-autism .autism-content ul li {
+    font-size: 0.9em; /* Tiếp tục giảm kích thước văn bản */
+  }
+
+  .topic4-autism .autism-content ul li {
+    padding-left: 15px; /* Giảm khoảng cách thụt đầu dòng */
+  }
+
+  .topic4-autism .autism-content ul li::before {
+    left: 5px; /* Điều chỉnh vị trí ký hiệu */
+  }
+}

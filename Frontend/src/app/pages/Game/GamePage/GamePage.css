@@ -32,3 +32,56 @@
   justify-content: center;
   gap: 100px; /* Khoảng cách giữa các thẻ */
 }
+
+/* Responsive styles */
+@media (max-width: 1200px) {
+  .game-page {
+    padding: 30px 15px; /* Giảm padding trên màn hình nhỏ hơn */
+  }
+
+  .game-page .game-header h2 {
+    font-size: 22px; /* Giảm kích thước tiêu đề */
+  }
+
+  .game-page .game-cards {
+    gap: 60px; /* Giảm khoảng cách giữa các thẻ */
+  }
+}
+
+@media (max-width: 768px) {
+  .game-page {
+    padding: 20px 10px;
+  }
+
+  .game-page .game-header {
+    flex-direction: column; /* Sắp xếp nội dung theo chiều dọc */
+    gap: 10px;
+  }
+
+  .game-page .game-header .game-icon {
+    width: 50px; /* Giảm kích thước icon */
+  }
+
+  .game-page .game-header h2 {
+    font-size: 20px; /* Giảm thêm kích thước tiêu đề */
+  }
+
+  .game-page .game-cards {
+    flex-direction: column; /* Thay đổi sắp xếp thẻ thành dọc */
+    gap: 30px;
+  }
+}
+
+@media (max-width: 480px) {
+  .game-page {
+    padding: 15px 5px;
+  }
+
+  .game-page .game-header h2 {
+    font-size: 18px; /* Tiêu đề nhỏ hơn cho màn hình rất nhỏ */
+  }
+
+  .game-page .game-cards {
+    gap: 20px; /* Giảm thêm khoảng cách giữa các thẻ */
+  }
+}

@@ -107,3 +107,90 @@
 .dropdown-menu li:active {
   background-color: #e0e0e0;
 }
+
+/* Responsive cho màn hình nhỏ hơn 1024px (Máy tính bảng) */
+@media (max-width: 1024px) {
+  .header {
+    padding: 0 20px; /* Tăng khoảng cách padding cho header */
+    height: auto; /* Tự động điều chỉnh chiều cao */
+  }
+
+  .header .logo {
+    font-size: 20px; /* Giảm kích thước logo */
+  }
+
+  .header .nav-list {
+    margin: 5px 0; /* Giảm khoảng cách của danh sách */
+  }
+
+  .header .nav-item {
+    margin: 0 15px; /* Giảm khoảng cách giữa các item */
+  }
+
+  .header .nav-item .avatar {
+    width: 28px; /* Thu nhỏ kích thước avatar */
+    height: 28px;
+  }
+
+  .dropdown-menu {
+    width: 160px; /* Giảm chiều rộng của menu dropdown */
+  }
+}
+
+/* Responsive cho màn hình nhỏ hơn 768px (Điện thoại lớn) */
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column; /* Chuyển header sang dạng cột */
+    align-items: flex-start; /* Căn các phần tử về bên trái */
+    padding: 10px; /* Giảm padding */
+  }
+
+  .header .logo {
+    margin-bottom: 10px; /* Thêm khoảng cách dưới logo */
+    font-size: 18px; /* Giảm kích thước font */
+  }
+
+  .header .nav-list {
+    flex-direction: column; /* Chuyển danh sách thành dạng dọc */
+    align-items: flex-start; /* Căn trái các item */
+    width: 100%;
+  }
+
+  .header .nav-item {
+    margin: 8px 0; /* Tăng khoảng cách giữa các item dọc */
+  }
+
+  .header .nav-item .avatar {
+    width: 26px; /* Thu nhỏ kích thước avatar hơn nữa */
+    height: 26px;
+  }
+}
+
+/* Responsive cho màn hình nhỏ hơn 480px (Điện thoại nhỏ) */
+@media (max-width: 480px) {
+  .header {
+    padding: 10px; /* Giảm padding nhỏ hơn nữa */
+  }
+
+  .header .logo {
+    font-size: 16px; /* Giảm kích thước chữ logo */
+  }
+
+  .header .nav-item {
+    font-size: 12px; /* Giảm kích thước chữ các mục nav */
+  }
+
+  .header .nav-item .avatar {
+    width: 24px; /* Avatar nhỏ nhất */
+    height: 24px;
+  }
+
+  .dropdown-menu {
+    width: 140px; /* Giảm kích thước menu dropdown */
+  }
+
+  .dropdown-menu li {
+    font-size: 12px; /* Giảm kích thước chữ trong menu */
+    padding: 10px 12px; /* Giảm padding */
+  }
+}

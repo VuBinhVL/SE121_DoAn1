@@ -35,3 +35,46 @@
     transform: scale(0.96); /* Tăng độ nhấn khi click */
   }
 }
+
+/* Responsive cho màn hình nhỏ hơn 1024px */
+@media (max-width: 1024px) {
+  .account-button {
+    font-size: 15px; /* Giảm kích thước chữ */
+    padding: 8px 18px; /* Điều chỉnh padding */
+    min-width: 90px; /* Giảm chiều rộng tối thiểu */
+  }
+}
+
+/* Responsive cho màn hình nhỏ hơn 768px */
+@media (max-width: 768px) {
+  .account-button {
+    font-size: 14px; /* Giảm kích thước chữ hơn nữa */
+    padding: 8px 15px; /* Giảm padding */
+    min-width: 80px; /* Giảm chiều rộng tối thiểu */
+  }
+
+  .account-button:hover {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Giảm hiệu ứng bóng */
+  }
+
+  .account-button:active {
+    transform: scale(0.96); /* Tăng độ nhấn khi click */
+  }
+}
+
+/* Responsive cho màn hình nhỏ hơn 480px */
+@media (max-width: 480px) {
+  .account-button {
+    font-size: 12px; /* Kích thước chữ nhỏ nhất */
+    padding: 6px 12px; /* Giảm padding */
+    min-width: 70px; /* Chiều rộng tối thiểu nhỏ hơn */
+  }
+
+  .account-button:hover {
+    box-shadow: none; /* Bỏ bóng trên màn hình rất nhỏ */
+  }
+
+  .account-button:active {
+    transform: scale(0.94); /* Hiệu ứng nhấn mạnh hơn */
+  }
+}

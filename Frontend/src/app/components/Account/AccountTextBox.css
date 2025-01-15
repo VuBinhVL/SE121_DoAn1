@@ -52,3 +52,49 @@
     padding: 8px; /* Giảm padding */
   }
 }
+
+/* Responsive cho màn hình nhỏ hơn 1024px */
+@media (max-width: 1024px) {
+  .account-textbox-input-field {
+    max-width: 100%; /* Input chiếm toàn bộ chiều rộng container */
+  }
+
+  .account-textbox-input-field .input-box {
+    font-size: 15px; /* Giảm kích thước chữ */
+    padding: 9px; /* Điều chỉnh padding */
+  }
+}
+
+/* Responsive cho màn hình nhỏ hơn 768px */
+@media (max-width: 768px) {
+  .account-textbox-input-field {
+    max-width: 100%; /* Chiều rộng tối đa theo container */
+    margin-bottom: 10px; /* Giảm khoảng cách giữa các input */
+  }
+
+  .account-textbox-input-field .input-label {
+    font-size: 12px; /* Giảm kích thước chữ của label */
+  }
+
+  .account-textbox-input-field .input-box {
+    font-size: 14px; /* Giảm kích thước chữ của input */
+    padding: 8px; /* Giảm padding để vừa với màn hình nhỏ */
+  }
+}
+
+/* Responsive cho màn hình nhỏ hơn 480px */
+@media (max-width: 480px) {
+  .account-textbox-input-field {
+    max-width: 100%; /* Chiếm toàn bộ chiều rộng */
+    margin-bottom: 8px; /* Giảm khoảng cách giữa các input hơn nữa */
+  }
+
+  .account-textbox-input-field .input-label {
+    font-size: 11px; /* Kích thước chữ nhỏ nhất */
+  }
+
+  .account-textbox-input-field .input-box {
+    font-size: 13px; /* Giảm kích thước chữ */
+    padding: 6px; /* Tăng không gian cho màn hình rất nhỏ */
+  }
+}

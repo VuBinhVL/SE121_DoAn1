@@ -11,27 +11,73 @@
   cursor: pointer;
 }
 
-.card:hover {
+.card .card:hover {
   transform: scale(1.05); /* Phóng to nhẹ khi hover */
   box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.15); /* Tăng đổ bóng khi hover */
 }
 
-.card-icon {
+.card .card-icon {
   width: auto; /* Kích thước icon */
   height: 70px;
   margin-bottom: 10px; /* Khoảng cách dưới */
   align-items: center;
 }
 
-.card-title {
+.card .card-title {
   font-size: 18px; /* Kích thước tiêu đề */
   font-weight: bold; /* Chữ đậm */
   color: #333; /* Màu chữ */
   margin-bottom: 10px; /* Khoảng cách dưới tiêu đề */
 }
 
-.card-description {
+.card .card-description {
   font-size: 14px; /* Kích thước chữ mô tả */
   color: #555; /* Màu chữ mô tả */
   line-height: 1.6; /* Khoảng cách dòng */
+}
+
+/* Responsive cho màn hình nhỏ hơn 768px */
+@media (max-width: 768px) {
+  .card {
+    width: 90%; /* Chiếm 90% chiều rộng màn hình */
+    margin: 15px auto; /* Canh giữa và tăng khoảng cách giữa các thẻ */
+    padding: 15px; /* Giảm padding bên trong */
+  }
+
+  .card-icon {
+    height: 60px; /* Giảm kích thước icon */
+    margin-bottom: 8px; /* Giảm khoảng cách dưới icon */
+  }
+
+  .card-title {
+    font-size: 16px; /* Giảm kích thước tiêu đề */
+  }
+
+  .card-description {
+    font-size: 13px; /* Giảm kích thước chữ mô tả */
+  }
+}
+
+/* Responsive cho màn hình nhỏ hơn 480px */
+@media (max-width: 480px) {
+  .card {
+    width: 100%; /* Chiếm toàn bộ chiều rộng màn hình */
+    padding: 10px; /* Giảm padding hơn nữa */
+    margin: 10px auto; /* Tăng khoảng cách giữa các thẻ */
+    border-radius: 6px; /* Giảm bo tròn góc */
+  }
+
+  .card-icon {
+    height: 50px; /* Thu nhỏ icon hơn nữa */
+    margin-bottom: 5px; /* Giảm khoảng cách dưới icon */
+  }
+
+  .card-title {
+    font-size: 14px; /* Tiêu đề nhỏ hơn */
+  }
+
+  .card-description {
+    font-size: 12px; /* Mô tả nhỏ nhất */
+    line-height: 1.4; /* Giảm khoảng cách dòng */
+  }
 }

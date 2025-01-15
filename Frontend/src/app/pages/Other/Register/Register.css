@@ -82,3 +82,90 @@
 .register-container .login-button:hover {
   font-weight: bold;
 }
+
+/* Responsive styles */
+@media (max-width: 1200px) {
+  .register-container .register-form {
+    max-width: 350px; /* Giảm kích thước form */
+    padding: 15px; /* Giảm padding bên trong */
+  }
+
+  .register-container .register-form h2 {
+    font-size: 20px; /* Giảm kích thước tiêu đề */
+  }
+
+  .register-container .form-group input {
+    font-size: 14px; /* Giảm kích thước chữ trong ô nhập */
+  }
+
+  .register-container .register-button {
+    font-size: 14px; /* Giảm kích thước nút */
+    padding: 8px; /* Giảm padding nút */
+  }
+
+  .register-container .forgot-password-button,
+  .register-container .login-button {
+    font-size: 12px; /* Giảm kích thước chữ nút hành động */
+  }
+}
+
+@media (max-width: 768px) {
+  .register-container {
+    padding: 10px; /* Thêm khoảng cách xung quanh container */
+  }
+
+  .register-container .register-form {
+    max-width: 300px; /* Giảm thêm kích thước form */
+  }
+
+  .register-container .register-form h2 {
+    font-size: 18px; /* Tiêu đề nhỏ hơn */
+  }
+
+  .register-container .form-group label {
+    font-size: 12px; /* Nhãn nhỏ hơn */
+  }
+
+  .register-container .form-group input {
+    font-size: 13px; /* Giảm kích thước chữ trong ô nhập */
+  }
+
+  .register-container .register-button {
+    font-size: 12px; /* Kích thước nút nhỏ hơn */
+    padding: 6px; /* Padding nhỏ hơn */
+  }
+
+  .register-container .action-buttons {
+    flex-direction: column; /* Xếp các nút theo chiều dọc */
+    gap: 10px; /* Thêm khoảng cách giữa các nút */
+  }
+}
+
+@media (max-width: 480px) {
+  .register-container .register-form {
+    max-width: 250px; /* Giảm tối đa kích thước form */
+    padding: 10px; /* Giảm padding bên trong form */
+  }
+
+  .register-container .register-form h2 {
+    font-size: 16px; /* Giảm kích thước tiêu đề thêm */
+  }
+
+  .register-container .form-group label {
+    font-size: 10px; /* Nhãn nhỏ hơn nữa */
+  }
+
+  .register-container .form-group input {
+    font-size: 12px; /* Ô nhập chữ nhỏ hơn */
+  }
+
+  .register-container .register-button {
+    font-size: 11px; /* Kích thước nút nhỏ hơn */
+    padding: 5px; /* Padding nhỏ hơn */
+  }
+
+  .register-container .forgot-password-button,
+  .register-container .login-button {
+    font-size: 11px; /* Giảm kích thước chữ của nút đăng nhập và quên mật khẩu */
+  }
+}

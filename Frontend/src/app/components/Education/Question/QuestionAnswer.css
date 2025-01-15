@@ -37,3 +37,48 @@
   font-size: 14px;
   color: #888;
 }
+
+/* Responsive cho màn hình nhỏ hơn 768px */
+@media (max-width: 768px) {
+  .qa-container {
+    min-width: 100%; /* Chiếm toàn bộ chiều rộng container */
+    padding: 10px; /* Giảm padding */
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Giảm hiệu ứng bóng */
+  }
+
+  .qa-container .qa-question {
+    font-size: 16px; /* Giảm kích thước chữ */
+    gap: 8px; /* Giảm khoảng cách giữa icon và câu hỏi */
+  }
+
+  .qa-container .qa-answer {
+    font-size: 14px; /* Giảm kích thước chữ */
+    padding-left: 25px; /* Giảm khoảng cách từ viền trái */
+  }
+
+  .qa-container .qa-toggle {
+    font-size: 12px; /* Giảm kích thước chữ toggle */
+  }
+}
+
+/* Responsive cho màn hình nhỏ hơn 480px */
+@media (max-width: 480px) {
+  .qa-container {
+    padding: 8px; /* Giảm padding hơn nữa */
+    border-radius: 8px; /* Giảm độ bo tròn */
+  }
+
+  .qa-container .qa-question {
+    font-size: 14px; /* Kích thước chữ nhỏ hơn */
+    gap: 5px; /* Khoảng cách giữa icon và câu hỏi nhỏ hơn */
+  }
+
+  .qa-container .qa-answer {
+    font-size: 13px; /* Kích thước chữ nhỏ nhất */
+    padding-left: 20px; /* Giảm khoảng cách từ viền trái */
+  }
+
+  .qa-container .qa-toggle {
+    font-size: 11px; /* Toggle nhỏ nhất */
+  }
+}

@@ -67,3 +67,81 @@
   color: white;
   width: 100px;
 }
+/* Responsive styles */
+@media (max-width: 1200px) {
+  .tester-overlay .tester-container {
+    width: 260px; /* Giảm chiều rộng container */
+    padding: 15px; /* Giảm padding container */
+  }
+
+  .tester-overlay .tester-container h3 {
+    font-size: 16px; /* Giảm kích thước tiêu đề */
+  }
+
+  .tester-overlay .form-group label {
+    font-size: 13px; /* Giảm kích thước nhãn */
+  }
+
+  .tester-overlay .form-group input {
+    padding: 6px; /* Giảm padding trong input */
+  }
+
+  .tester-overlay .button-group button {
+    padding: 8px 12px; /* Giảm kích thước nút */
+    width: 90px; /* Giảm chiều rộng nút */
+  }
+}
+
+@media (max-width: 768px) {
+  .tester-overlay .tester-container {
+    width: 220px; /* Giảm thêm chiều rộng container */
+    padding: 10px; /* Giảm thêm padding */
+  }
+
+  .tester-overlay .tester-container h3 {
+    font-size: 14px; /* Kích thước tiêu đề nhỏ hơn */
+    margin-bottom: 10px; /* Giảm khoảng cách dưới tiêu đề */
+  }
+
+  .tester-overlay .form-group label {
+    font-size: 12px; /* Nhãn nhỏ hơn */
+  }
+
+  .tester-overlay .form-group input {
+    font-size: 12px; /* Giảm kích thước chữ trong input */
+  }
+
+  .tester-overlay .button-group {
+    flex-direction: column; /* Chuyển các nút thành dọc */
+    gap: 10px; /* Thêm khoảng cách giữa các nút */
+  }
+
+  .tester-overlay .button-group button {
+    width: 100%; /* Nút chiếm toàn bộ chiều rộng */
+  }
+}
+
+@media (max-width: 480px) {
+  .tester-overlay .tester-container {
+    width: 90%; /* Container chiếm 90% chiều rộng màn hình */
+    padding: 8px; /* Giảm tối đa padding */
+  }
+
+  .tester-overlay .tester-container h3 {
+    font-size: 12px; /* Kích thước tiêu đề nhỏ nhất */
+  }
+
+  .tester-overlay .form-group label {
+    font-size: 10px; /* Kích thước nhãn nhỏ nhất */
+  }
+
+  .tester-overlay .form-group input {
+    font-size: 11px; /* Kích thước chữ input nhỏ nhất */
+    padding: 5px; /* Giảm padding input */
+  }
+
+  .tester-overlay .button-group button {
+    font-size: 11px; /* Kích thước chữ nút nhỏ nhất */
+    padding: 6px; /* Giảm padding của nút */
+  }
+}

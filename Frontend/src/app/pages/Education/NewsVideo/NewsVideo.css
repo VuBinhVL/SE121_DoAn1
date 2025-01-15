@@ -131,3 +131,90 @@
   line-height: 1.5; /* Tăng khoảng cách dòng */
   align-items: flex-start;
 }
+
+/* Responsive cho màn hình nhỏ hơn 1024px (Máy tính bảng) */
+@media (max-width: 1024px) {
+  .news-video-page {
+    padding: 30px 15px; /* Giảm padding cho trang */
+  }
+
+  .news-video-page .news-video-container {
+    flex-direction: column; /* Chuyển thanh bên và nội dung thành dạng cột */
+    gap: 15px; /* Giảm khoảng cách giữa các phần */
+  }
+
+  .news-video-page .news-video-sidebar {
+    width: 100%; /* Thanh bên chiếm toàn bộ chiều rộng */
+    height: auto; /* Chiều cao tự động */
+  }
+
+  .news-video-page .news-video-content {
+    width: 100%; /* Nội dung chiếm toàn bộ chiều rộng */
+    height: auto; /* Chiều cao tự động */
+  }
+}
+
+/* Responsive cho màn hình nhỏ hơn 768px (Điện thoại lớn) */
+@media (max-width: 768px) {
+  .news-video-page {
+    padding: 20px 10px; /* Giảm padding thêm */
+  }
+
+  .news-video-page .news-video-header h2 {
+    font-size: 20px; /* Giảm kích thước tiêu đề */
+  }
+
+  .news-video-page .news-video-line-title {
+    font-size: 18px; /* Giảm kích thước chữ của tiêu đề */
+  }
+
+  .news-video-page .news-video-container {
+    flex-direction: column; /* Giữ layout dạng cột */
+    gap: 10px; /* Khoảng cách nhỏ hơn giữa các phần */
+  }
+
+  .news-video-page .news-video-sidebar {
+    height: auto; /* Chiều cao tự động */
+    padding: 10px; /* Giảm padding */
+  }
+
+  .news-video-page .news-video-sidebar-item {
+    font-size: 14px; /* Giảm kích thước chữ */
+    padding: 8px; /* Giảm padding */
+  }
+
+  .news-video-page .news-video-content {
+    padding: 10px; /* Giảm padding cho nội dung */
+    font-size: 14px; /* Giảm kích thước chữ của nội dung */
+  }
+}
+
+/* Responsive cho màn hình nhỏ hơn 480px (Điện thoại nhỏ) */
+@media (max-width: 480px) {
+  .news-video-page {
+    padding: 15px 5px; /* Giảm padding tối đa */
+  }
+
+  .news-video-page .news-video-header h2 {
+    font-size: 18px; /* Tiêu đề nhỏ nhất */
+  }
+
+  .news-video-page .news-video-line-title {
+    font-size: 16px; /* Kích thước tiêu đề nhỏ hơn */
+  }
+
+  .news-video-page .news-video-sidebar {
+    height: auto; /* Tự động điều chỉnh chiều cao */
+    padding: 8px; /* Giảm padding hơn nữa */
+  }
+
+  .news-video-page .news-video-sidebar-item {
+    font-size: 12px; /* Giảm kích thước chữ tối đa */
+    padding: 6px; /* Giảm padding */
+  }
+
+  .news-video-page .news-video-content {
+    padding: 8px; /* Giảm padding của nội dung */
+    font-size: 12px; /* Giảm kích thước chữ của nội dung */
+  }
+}

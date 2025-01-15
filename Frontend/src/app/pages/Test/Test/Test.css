@@ -32,3 +32,65 @@
   justify-content: center;
   gap: 100px; /* Khoảng cách giữa các thẻ */
 }
+
+/* Responsive styles */
+@media (max-width: 1200px) {
+  .test-page {
+    padding: 30px 15px; /* Giảm padding tổng thể */
+  }
+
+  .test-page .test-header h2 {
+    font-size: 22px; /* Giảm kích thước tiêu đề */
+  }
+
+  .test-page .test-header .test-icon {
+    width: 50px; /* Giảm kích thước icon */
+  }
+
+  .test-page .test-cards {
+    gap: 60px; /* Giảm khoảng cách giữa các thẻ */
+  }
+}
+
+@media (max-width: 768px) {
+  .test-page {
+    padding: 20px 10px; /* Giảm thêm padding tổng thể */
+  }
+
+  .test-page .test-header {
+    flex-direction: column; /* Chuyển sang bố cục dọc */
+    align-items: center; /* Căn giữa các phần tử */
+    gap: 10px; /* Thêm khoảng cách giữa icon và tiêu đề */
+  }
+
+  .test-page .test-header h2 {
+    font-size: 20px; /* Tiêu đề nhỏ hơn */
+  }
+
+  .test-page .test-header .test-icon {
+    width: 40px; /* Giảm kích thước icon thêm */
+  }
+
+  .test-page .test-cards {
+    flex-direction: column; /* Chuyển sang sắp xếp dọc */
+    gap: 30px; /* Thêm khoảng cách giữa các thẻ */
+  }
+}
+
+@media (max-width: 480px) {
+  .test-page {
+    padding: 15px 5px; /* Giảm tối đa padding */
+  }
+
+  .test-page .test-header h2 {
+    font-size: 18px; /* Kích thước tiêu đề nhỏ hơn */
+  }
+
+  .test-page .test-header .test-icon {
+    width: 30px; /* Kích thước nhỏ nhất của icon */
+  }
+
+  .test-page .test-cards {
+    gap: 20px; /* Giảm thêm khoảng cách giữa các thẻ */
+  }
+}
