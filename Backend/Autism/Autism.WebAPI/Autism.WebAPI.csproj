@@ -1,0 +1,33 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.36" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.36">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Python.Runtime.AllPlatforms" Version="3.7.2.4" />
+    <PackageReference Include="pythonnet" Version="3.1.0-preview2024-09-06" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Areas\Admin\" />
+    <Folder Include="Areas\Customer\" />
+    <Folder Include="images\" />
+    <Folder Include="Script\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Autism.Common\Autism.Common.csproj" />
+    <ProjectReference Include="..\Autism.DataAccess\Autism.DataAccess.csproj" />
+    <ProjectReference Include="..\Autism.Service\Autism.Service.csproj" />
+  </ItemGroup>
+
+</Project>
