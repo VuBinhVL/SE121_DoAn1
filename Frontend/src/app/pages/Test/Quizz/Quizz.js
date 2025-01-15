@@ -1,83 +1,158 @@
-import React, { useState } from 'react';
-import './Quizz.css';
-
-const questions = [
-    "Question 1?", "Question 2?", "Question 3?", "Question 4?", "Question 5?",
-    "Question 6?", "Question 7?", "Question 8?", "Question 9?", "Question 10?",
-    "Question 11?", "Question 12?", "Question 13?", "Question 14?", "Question 15?",
-    "Question 16?", "Question 17?", "Question 18?", "Question 19?", "Question 20?"
-];
+import React, { useEffect, useState } from "react";
+import "./Quizz.css";
+import { useLocation, useNavigate } from "react-router-dom";
+import { showErrorMessageBox } from "../../../components/MessageBox/ErrorMessageBox/showErrorMessageBox";
+import { showSuccessMessageBox } from "../../../components/MessageBox/SuccessMessageBox/showSuccessMessageBox";
+import { fetchGet, fetchPost } from "../../../lib/httpHandler";
 
 const Quizz = () => {
-    const [answers, setAnswers] = useState(Array(20).fill(null));
-    const [currentPage, setCurrentPage] = useState(0);
-    const questionsPerPage = 5;
+  const [questionsData, setQuestionsData] = useState([]); // Lưu câu hỏi
+  const [answers, setAnswers] = useState([]); // Lưu đáp án
+  const [currentPage, setCurrentPage] = useState(0);
+  const navigate = useNavigate();
+  const [nguoiDungId, setnguoiDungId] = useState("");
+  // Truyền thông tin qua
+  const location = useLocation();
+  const { id } = location.state || {}; // Lấy ID người kiểm tra từ state
+  const questionsPerPage = 5;
 
-    const handleAnswer = (index, answer) => {
-        const newAnswers = [...answers];
-        newAnswers[index] = answer;
-        setAnswers(newAnswers);
-    };
-
-    const handleSubmit = () => {
-        console.log(answers);
-        alert('Quiz submitted! Check the console for answers.');
-    };
-
-    const handleNext = () => {
-        setCurrentPage(prev => Math.min(prev + 1, Math.ceil(questions.length / questionsPerPage) - 1));
-    };
-
-    const handleBack = () => {
-        setCurrentPage(prev => Math.max(prev - 1, 0));
-    };
-
-    const indexOfLastQuestion = (currentPage + 1) * questionsPerPage;
-    const indexOfFirstQuestion = indexOfLastQuestion - questionsPerPage;
-    const currentQuestions = questions.slice(indexOfFirstQuestion, indexOfLastQuestion);
-
-    return (
-        <div className="quiz-container">
-            <h1>Quiz</h1>
-            {currentQuestions.map((question, index) => {
-                const questionIndex = indexOfFirstQuestion + index;
-                return (
-                    <div key={questionIndex} className="question-item">
-                        <p>{question}</p>
-                        <div className="radio-group">
-                            <label>
-                                <input 
-                                    type="radio" 
-                                    name={`question-${questionIndex}`} 
-                                    value="Yes" 
-                                    onChange={() => handleAnswer(questionIndex, 'Yes')}
-                                    checked={answers[questionIndex] === 'Yes'}
-                                />
-                                Yes
-                            </label>
-                            <label>
-                                <input 
-                                    type="radio" 
-                                    name={`question-${questionIndex}`} 
-                                    value="No" 
-                                    onChange={() => handleAnswer(questionIndex, 'No')}
-                                    checked={answers[questionIndex] === 'No'}
-                                />
-                                No
-                            </label>
-                        </div>
-                    </div>
-                );
-            })}
-            <div className="navigation">
-                <button onClick={handleBack} disabled={currentPage === 0}>Back</button>
-                <button onClick={handleNext} disabled={indexOfLastQuestion >= questions.length}>Next</button>
-            </div>
-            {currentPage === Math.ceil(questions.length / questionsPerPage) - 1 && 
-                <button className="submit-button" onClick={handleSubmit}>Submit</button>
-            }
-        </div>
+  // Gọi API lấy câu hỏi
+  useEffect(() => {
+    const uri = "/api/baiquizz/cau-hoi-bai-quizz";
+    fetchGet(
+      uri,
+      (res) => {
+        setQuestionsData(res.questions); // Lưu danh sách câu hỏi từ API
+        setAnswers(Array(res.questions.length).fill(null)); // Khởi tạo mảng đáp án
+      },
+      (fail) => showErrorMessageBox(fail.message),
+      () => showErrorMessageBox("Mất kết nối đến máy chủ")
     );
+
+    const uri2 = "/api/info";
+    fetchGet(
+      uri2,
+      (res) => {
+        console.log(res);
+        setnguoiDungId(res.nguoiDungId);
+      },
+      (fail) => console.log(fail.message),
+      () => console.log("Mất kết nối")
+    );
+  }, [id]);
+
+  // Xử lý chọn đáp án
+  const handleAnswer = (index, answerId) => {
+    const newAnswers = [...answers];
+    newAnswers[index] = answerId; // Lưu ID đáp án
+    setAnswers(newAnswers);
+  };
+
+  // Nộp bài quiz
+  const handleSubmit = () => {
+    // Kiểm tra tất cả câu hỏi đã được trả lời
+    const unansweredQuestions = answers.findIndex((answer) => answer === null);
+    if (unansweredQuestions !== -1) {
+      showErrorMessageBox(`Bạn cần trả lời tất cả câu hỏi!`);
+      return;
+    }
+
+    const uri = "/api/baiquizz/save";
+    const ngayLamQuizz = new Date().toISOString(); // Lấy ngày hiện tại
+
+    // Chuẩn bị dữ liệu gửi API
+    const chiTietBaiQuizzs = questionsData.map((question, index) => ({
+      cauHoiBaiQuizzId: question.questionId,
+      dapAnBaiQuizzIds: answers[index] ? [answers[index]] : [], // Nếu có đáp án, thêm vào mảng
+    }));
+
+    const data = {
+      nguoiDungId: nguoiDungId,
+      ngayLamQuizz,
+      nguoiKiemTraId: id || 0, // ID người kiểm tra từ location.state
+      chiTietBaiQuizzs,
+    };
+
+    //console.log(data);
+    // Gọi API
+    fetchPost(
+      uri,
+      data,
+      (res) => {
+        showSuccessMessageBox(res.message); // Hiển thị thông báo thành công
+        navigate("/quiz-history"); // Chuyển hướng về trang lịch sử quiz
+      },
+      (fail) => showErrorMessageBox(fail.message), // Hiển thị thông báo lỗi
+      () => showErrorMessageBox("Mất kết nối đến máy chủ") // Lỗi mạng
+    );
+  };
+
+  // Tiến đến trang sau
+  const handleNext = () => {
+    setCurrentPage((prev) =>
+      Math.min(prev + 1, Math.ceil(questionsData.length / questionsPerPage) - 1)
+    );
+  };
+
+  // Quay lại trang trước
+  const handleBack = () => {
+    setCurrentPage((prev) => Math.max(prev - 1, 0));
+  };
+
+  // Phân trang
+  const indexOfLastQuestion = (currentPage + 1) * questionsPerPage;
+  const indexOfFirstQuestion = indexOfLastQuestion - questionsPerPage;
+  const currentQuestions = questionsData.slice(
+    indexOfFirstQuestion,
+    indexOfLastQuestion
+  );
+
+  return (
+    <div className="quiz-container">
+      <h1>Bài kiểm tra Quizz</h1>
+      {currentQuestions.map((question, index) => {
+        const questionIndex = indexOfFirstQuestion + index;
+        return (
+          <div key={question.questionId} className="question-item">
+            <p>{question.questionText}</p>
+            <div className="radio-group">
+              {question.answers.map((answer) => (
+                <label key={answer.answerId}>
+                  <input
+                    type="radio"
+                    name={`question-${questionIndex}`}
+                    value={answer.answerId}
+                    onChange={() =>
+                      handleAnswer(questionIndex, answer.answerId)
+                    }
+                    checked={answers[questionIndex] === answer.answerId}
+                  />
+                  {answer.answerText}
+                </label>
+              ))}
+            </div>
+          </div>
+        );
+      })}
+      <div className="navigation">
+        <button onClick={handleBack} disabled={currentPage === 0}>
+          Back
+        </button>
+        <button
+          onClick={handleNext}
+          disabled={indexOfLastQuestion >= questionsData.length}
+        >
+          Next
+        </button>
+      </div>
+      {currentPage ===
+        Math.ceil(questionsData.length / questionsPerPage) - 1 && (
+        <button className="submit-button" onClick={handleSubmit}>
+          Submit
+        </button>
+      )}
+    </div>
+  );
 };
 
 export default Quizz;

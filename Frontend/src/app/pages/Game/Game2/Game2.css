@@ -1,0 +1,114 @@
+.game2-container {
+  display: flex;
+  flex-direction: column; /* Sắp xếp các phần tử theo chiều dọc */
+  align-items: center; /* Căn giữa nội dung chính */
+  gap: 9px; /* Khoảng cách giữa các phần tử */
+  padding: 20px;
+  background-image: url("https://png.pngtree.com/background/20230419/original/pngtree-game-big-scene-hd-cartoon-background-image-picture-image_2448068.jpg"); /* Link hình nền */
+  background-size: cover; /* Phủ kín toàn bộ container */
+  background-position: center; /* Căn giữa hình nền */
+  background-repeat: no-repeat; /* Không lặp hình nền */
+  font-weight: bold;
+  color: #191919;
+}
+
+.game2-container .puzzle-and-reference {
+  display: flex; /* Sắp xếp khu vực ghép ảnh và ảnh mẫu nằm ngang */
+  justify-content: space-between; /* Dàn đều hai khu vực */
+  align-items: flex-start; /* Căn theo đỉnh */
+  width: 100%; /* Chiều rộng tối đa */
+  max-width: 800px; /* Giới hạn chiều rộng tối đa */
+  gap: 20px;
+}
+
+/* Khu vực ghép ảnh */
+.game2-container .puzzle-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 cột */
+  grid-template-rows: repeat(3, 1fr); /* 3 hàng */
+  width: 300px; /* Tổng chiều rộng lưới */
+  height: 300px; /* Tổng chiều cao lưới */
+  gap: 0; /* Loại bỏ khoảng cách giữa các ô */
+  width: 80%; /* Căn chỉnh vùng nội dung chính */
+
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.game2-container .puzzle-slot {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  border: 0.5px solid #000000;
+  overflow: hidden; /* Đảm bảo mảnh không vượt ra ngoài ô */
+}
+
+.game2-container .puzzle-piece {
+  width: 100%; /* Đảm bảo lấp đầy ô */
+  height: 100%; /* Đảm bảo lấp đầy ô */
+  background-size: 300% 300%; /* Tương ứng với 3x3 mảnh ghép */
+  background-repeat: no-repeat;
+}
+
+/* Ảnh mẫu */
+.game2-container .reference-area {
+  flex: 0.4; /* Chiếm ít không gian hơn khu vực ghép ảnh */
+  text-align: center;
+}
+
+.game2-container .reference-image {
+  width: auto;
+  height: 190px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+}
+
+.game2-container .reference-area h3 {
+  text-align: left;
+  margin-bottom: 10px;
+}
+
+/* Khu vực chứa ảnh bị cắt */
+.game2-container .shuffled-area {
+  text-align: center;
+  width: 100%; /* Chiếm toàn bộ chiều rộng */
+}
+
+.game2-container .shuffled-grid {
+  display: flex;
+  flex-wrap: wrap; /* Tự động xuống hàng */
+  gap: 10px; /* Khoảng cách giữa các mảnh ghép */
+  justify-content: center; /* Căn giữa các mảnh ghép */
+}
+
+.game2-container .shuffled-piece {
+  width: 100px;
+  height: 100px;
+  border: 2px solid #ccc;
+  background-size: cover;
+  cursor: grab;
+}
+
+/* Nút xác nhận */
+.game2-container .feedback {
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+}
+
+.game2-container .confirm-button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  background-color: #4caf50;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.game2-container .confirm-button:hover {
+  background-color: #45a049;
+}
