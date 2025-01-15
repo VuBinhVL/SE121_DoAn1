@@ -1,6 +1,6 @@
-.history-image {
-    width: 150px; /* Thay đổi giá trị này theo kích thước mong muốn */
-    height: 150px; /* Thay đổi giá trị này theo kích thước mong muốn */
-    object-fit: cover; /* Đảm bảo ảnh che phủ toàn bộ vùng mà không bị biến dạng */
-    object-position: center; /* Căn giữa ảnh trong vùng hiển thị */
-  }
+.image-history-container .history-image {
+  width: 150px; /* Thay đổi giá trị này theo kích thước mong muốn */
+  height: 150px; /* Thay đổi giá trị này theo kích thước mong muốn */
+  object-fit: cover; /* Đảm bảo ảnh che phủ toàn bộ vùng mà không bị biến dạng */
+  object-position: center; /* Căn giữa ảnh trong vùng hiển thị */
+}
