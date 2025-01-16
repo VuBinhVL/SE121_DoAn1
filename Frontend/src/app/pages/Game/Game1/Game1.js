@@ -8,6 +8,7 @@ import love from "../../../assets/icons/emojiforgame1/love.png"; // emotion thí
 import scared from "../../../assets/icons/emojiforgame1/scared.png"; // emotion sợ
 import tired from "../../../assets/icons/emojiforgame1/tired.png"; // emotion chán
 import cau2 from "../../../assets/icons/askgame1/cau2.png"; //Ảnh câu 2
+import cau1 from "../../../assets/images/cau1.jpeg"; //Ảnh câu 2vv
 import cau3 from "../../../assets/icons/askgame1/cau3.png"; //Ảnh câu 3
 import cau4 from "../../../assets/icons/askgame1/cau4.png"; //Ảnh câu 4
 import cau5 from "../../../assets/icons/askgame1/cau5.png"; //Ảnh câu 5
@@ -25,7 +26,7 @@ import { useNavigate } from "react-router-dom";
 const questions = [
   {
     question: "Câu 1: Khi bạn được tặng quà, bạn sẽ cảm thấy như thế nào?",
-    image: "https://tazagift.com/wp-content/uploads/2023/02/qua-tang-4.jpeg",
+    image: cau1,
     correctAnswer: happy,
     advice: "Hãy trân trọng món quà từ người khác và bày tỏ lòng biết ơn nhé!",
   },
